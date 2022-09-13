@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+const projectData = {'answer': 0 };
 
 // Require Express to run server and routes
 const express = require('express');
@@ -27,3 +27,21 @@ function listening() {
 }
 
 const server = app.listen(port, listening);
+
+// get method route
+app.get('/', sendData)
+
+function sendData(request, response) {
+    response.send(projectData)
+    console.log("hello world")
+}
+
+// post method route
+app.post('/add', callBack)
+
+function callBack(request, response){
+    let data = request.body;
+    projectData['answer'] = data.answer
+    console.log(projectData)
+    // response.send('Post received')
+}
