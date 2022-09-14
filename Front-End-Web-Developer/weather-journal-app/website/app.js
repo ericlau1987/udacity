@@ -1,5 +1,8 @@
 /* Global Variables */
+let apiKey = 'b5987c106b54c23537da199b9b192b4e';
 const zip = document.getElementById('zip').textContent
+let baseURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},aus&appid=${apiKey}`
+
 console.log(zip)
 // Create a new date instance dynamically with JS
 let d = new Date();
