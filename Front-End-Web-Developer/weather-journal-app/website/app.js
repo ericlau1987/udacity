@@ -7,12 +7,20 @@ let baseURL = `https://api.openweathermap.org/data/2.5/weather?zip={zip},au&appi
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
-let temperature = document.getElementById('generate').addEventListener('click', performAction);
-console.log(temperature)
+// 
+let newData = document.getElementById('generate').addEventListener('click', performAction);
 
+// the event is to get zip value
 function performAction(e){
     const newZip = document.getElementById('zip').value
-    getWeather(baseURL, newZip)
+    const feeling = document.getElementById('feelings').value
+    const data = getWeather(baseURL, newZip)
+    // need to solve how to fix "promise" when getting data from temp
+    // check chaining promises
+    console.log({temperature: data["main"]["temp"], feeling: feeling, date: newDate})
+    return {temperature: data["main"]["temp"], feeling: feeling, date: newDate}
+
+
 }
 
 const getWeather = async (baseURL, zip) => {
@@ -23,7 +31,8 @@ const getWeather = async (baseURL, zip) => {
         
         const data = await res.json()
         console.log(data["main"]["temp"])
-        return data["main"]["temp"];
+        return data
+        // return data["main"]["temp"];
     } catch(error) {
         console.log("error", error)
     }
@@ -50,7 +59,7 @@ const postData = async ( url = '', data = {})=>{
       }
   }
 postData('/add', {
-    temperature: temperature,
+    temperature: 30,
     date: newDate,
     user_response: "hello mate"
 })
