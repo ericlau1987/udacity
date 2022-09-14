@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-const projectData = {'answer': 0 };
+const projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -33,7 +33,7 @@ app.get('/', sendData)
 
 function sendData(request, response) {
     response.send(projectData)
-    console.log("hello world")
+    console.log("Data is sent")
 }
 
 // post method route
@@ -41,7 +41,28 @@ app.post('/add', callBack)
 
 function callBack(request, response){
     let data = request.body;
-    projectData['answer'] = data.answer
+    let key = ""
+    // if the projectData is not empty
+    // find the highest key number and
+    // then add 1 to create a new key
+    if(Object.entries(projectData).length != 0) {
+        const keys = Object.keys(projectData);
+        const numbers = keys.map(function(key){
+        return parseInt(key.replace("key", '') || 0);
+        })
+        const highest = Math.max.apply(null, numbers);
+        key = "key" + (highest+1)
+    }else {
+        key = "key0"
+    };
+
+    newEntry = {
+        temperature: data.temperature,
+        date: data.date,
+        user_response: data.user_response
+        }
+    projectData[key] = newEntry
     console.log(projectData)
+    console.log("Post received")
     // response.send('Post received')
 }

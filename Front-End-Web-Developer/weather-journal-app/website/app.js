@@ -25,4 +25,8 @@ const postData = async ( url = '', data = {})=>{
       // appropriately handle the error
       }
   }
-postData('/add', {answer:20})
+postData('/add', {
+    temperature: 30,
+    date: newDate,
+    user_response: "hello mate"
+    })
