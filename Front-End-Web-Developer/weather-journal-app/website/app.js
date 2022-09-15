@@ -8,19 +8,18 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // 
-let newData = document.getElementById('generate').addEventListener('click', performAction);
+document.getElementById('generate').addEventListener('click', performAction);
 
 // the event is to get zip value
 function performAction(e){
     const newZip = document.getElementById('zip').value
     const feeling = document.getElementById('feelings').value
-    const data = getWeather(baseURL, newZip)
-    // need to solve how to fix "promise" when getting data from temp
-    // check chaining promises
-    console.log({temperature: data["main"]["temp"], feeling: feeling, date: newDate})
-    return {temperature: data["main"]["temp"], feeling: feeling, date: newDate}
-
-
+    getWeather(baseURL, newZip)
+    .then(function(data) {
+        // console.log({temperature: data, feeling: feeling, date: newDate})
+        postData('/add', {temperature: data, feeling: feeling, date: newDate})
+        .then(updateUI())
+    })
 }
 
 const getWeather = async (baseURL, zip) => {
@@ -30,16 +29,14 @@ const getWeather = async (baseURL, zip) => {
     try {
         
         const data = await res.json()
-        console.log(data["main"]["temp"])
-        return data
-        // return data["main"]["temp"];
+        return data["main"]["temp"];
     } catch(error) {
         console.log("error", error)
     }
 }
 
 const postData = async ( url = '', data = {})=>{
-    console.log(data)
+    // console.log(data)
       const response = await fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       credentials: 'same-origin', // include, *same-origin, omit
@@ -51,15 +48,23 @@ const postData = async ( url = '', data = {})=>{
   
       try {
         const newData = await response.json();
-        // console.log(newData);
         return newData
       }catch(error) {
       console.log("error", error);
       // appropriately handle the error
       }
   }
-postData('/add', {
-    temperature: 30,
-    date: newDate,
-    user_response: "hello mate"
-})
+
+const updateUI = async() => {
+const request = await fetch('/recent');
+try {
+    const recentData = await request.json()
+    console.log(recentData)
+    // console.log(recentData.feeling)
+    document.getElementById('date').innerHTML = recentData.date;
+    document.getElementById('temp').innerHTML = recentData.temperature;
+    document.getElementById('content').innerHTML = recentData.user_response
+} catch(error) {
+    console.log("error", error)
+}
+}

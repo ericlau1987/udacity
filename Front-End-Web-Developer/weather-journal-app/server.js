@@ -1,5 +1,6 @@
 // Setup empty JS object to act as endpoint for all routes
 const projectData = {};
+let maxKey = ""
 
 // Require Express to run server and routes
 const express = require('express');
@@ -29,10 +30,12 @@ function listening() {
 const server = app.listen(port, listening);
 
 // get method route
-app.get('/', sendData)
+app.get('/recent', sendRecentData)
 
-function sendData(request, response) {
-    response.send(projectData)
+function sendRecentData(request, response) {
+    response.send(projectData[maxKey])
+    console.log(maxKey)
+    console.log(projectData[maxKey])
     console.log("Data is sent")
 }
 
@@ -59,10 +62,12 @@ function callBack(request, response){
     newEntry = {
         temperature: data.temperature,
         date: data.date,
-        user_response: data.user_response
+        user_response: data.feeling
         }
     projectData[key] = newEntry
+    maxKey = key
     console.log(projectData)
+    // console.log(maxKey)
     console.log("Post received")
     // response.send('Post received')
 }
