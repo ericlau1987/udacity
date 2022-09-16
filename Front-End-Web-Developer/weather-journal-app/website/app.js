@@ -1,11 +1,11 @@
 /* Global Variables */
-let apiKey = 'b5987c106b54c23537da199b9b192b4e';
+const apiKey = 'b5987c106b54c23537da199b9b192b4e&units=imperial';
 let baseURL = `https://api.openweathermap.org/data/2.5/weather?zip={zip},au&appid=${apiKey}`
 
 // console.log(baseURL)
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth() + 1 +'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // 
 document.getElementById('generate').addEventListener('click', performAction);
@@ -59,7 +59,7 @@ const updateUI = async() => {
 const request = await fetch('/recent');
 try {
     const recentData = await request.json()
-    console.log(recentData)
+    // console.log(recentData)
     // console.log(recentData.feeling)
     document.getElementById('date').innerHTML = recentData.date;
     document.getElementById('temp').innerHTML = recentData.temperature;
