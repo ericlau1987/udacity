@@ -1,7 +1,7 @@
 FROM python:3.8
 
 # define default directory within docker
-WORKDIR /home/data-engineering
+WORKDIR /data-engineering
 
 # Copy requirements.txt
 COPY ../../requirements.txt requirements.txt

@@ -12,7 +12,7 @@ services:
     # depends_on expresses startup and shutdown dependencies between services.
     # The depends_on is to make sure postgres is run first before running dbt
     volumes:
-      - ./:home/data-engineering/
+      - ./01_data_modeling:/data-engineering/01_data_modeling/
     depends_on:
       postgres_udacity:
         condition: service_healthy
