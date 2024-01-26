@@ -1,0 +1,46 @@
+version: '3'
+services:
+  python:
+    container_name: python
+    build: 
+    # The build context is the set of files that your build can access. 
+      # set of files that your build can access. 
+      # Details can be found https://docs.docker.com/build/building/context/#what-is-a-build-context
+      context: ./ 
+      dockerfile: docker/python/Dockerfile
+    env_file: .env
+    # depends_on expresses startup and shutdown dependencies between services.
+    # The depends_on is to make sure postgres is run first before running dbt
+    volumes:
+      - ./01_data_modeling:/data-engineering/01_data_modeling/
+    depends_on:
+      postgres_udacity:
+        condition: service_healthy
+
+  postgres_udacity:
+    container_name: postgres
+    # build dockerfile for postgres
+    build: docker/postgres/
+    restart: always
+    hostname: ${POSTGRES_HOST}
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    volumes:
+      - postgres_udacity:/var/lib/postgresql/data
+    # update the default port to the new port
+    # without it, it will still listen to the default port 5432
+    command: postgres -c port=${POSTGRES_PORT} 
+    # Set up postgres database 
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres  -p ${POSTGRES_PORT}"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_udacity:
