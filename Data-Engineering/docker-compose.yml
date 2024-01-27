@@ -42,5 +42,63 @@ services:
       timeout: 5s
       retries: 10
 
+  cassandra_seed:
+    image: cassandra:3.11
+    restart: "no"
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"
+    container_name: cassandra-seed
+    # networks:
+    #   - cassandra_seed
+    expose:
+      - "7000"
+    ports:
+      - target: 9042
+        published: 9042
+        protocol: tcp
+        mode: host
+    volumes:
+      - cassandra_seed:/var/lib/cassandra/data
+    environment:
+      CASSANDRA_BROADCAST_ADDRESS: "cassandra-seed"
+      CASSANDRA_NUM_TOKENS: 4
+      CASSANDRA_START_RPC: true
+
+  # cassandra_node:
+  #   image: cassandra:3.11
+  #   restart: "no"
+  #   logging:
+  #     options:
+  #       max-size: "5m"
+  #       max-file: "1"
+  #   container_name: cassandra-node
+  #   hostname: cassandra-node
+  #   # networks:
+  #   #   - cassandra
+  #   expose:
+  #     - "7000"
+  #   ports:
+  #     - target: 9042
+  #       published: 9043
+  #       protocol: tcp
+  #       mode: host
+  #   volumes:
+  #     - cassandra_node:/var/lib/cassandra/data
+  #   environment:
+  #     CASSANDRA_SEEDS: "cassandra-seed"
+  #     CASSANDRA_LISTEN_ADDRESS: cassandra-node
+  #     CASSANDRA_BROADCAST_ADDRESS: cassandra-node
+  #     CASSANDRA_START_RPC: true
+  #     # CASSANDRA_ENDPOINT_SNITCH: SimpleSnitch
+  #     CASSANDRA_NUM_TOKENS: 4
+  #     # CASSANDRA_CLUSTER_NAME: cluster
+  #     # CASSANDRA_DC: dc
+  #     # HEAP_NEWSIZE: 32M
+  #     # MAX_HEAP_SIZE: 4M
+
 volumes:
   postgres_udacity:
+  cassandra_seed:
+  # cassandra_node:
