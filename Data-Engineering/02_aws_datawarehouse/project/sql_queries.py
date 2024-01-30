@@ -4,7 +4,7 @@ import configparser
 # CONFIG
 config = configparser.ConfigParser()
 config.read('dwh.cfg')
-
+print(config['IAM_ROLE']['ARN'])
 # DROP TABLES
 
 staging_events_table_drop = "drop table if exists raw_events"
@@ -20,9 +20,9 @@ time_table_drop = "drop table if exists dim_time"
 staging_events_table_create= ("""
     create table if not exists raw_events (
         artist text,
-        auth text not null,
-        firstname text not null,
-        gender text not null,
+        auth text,
+        firstname text,
+        gender text,
         iteminsession int,
         lastname text,
         length double precision,
@@ -36,22 +36,22 @@ staging_events_table_create= ("""
         status int,
         ts bigint,
         useragent text,
-        userid int
+        userid text
     )
     """)
 
 staging_songs_table_create = ("""
     create table if not exists raw_song (
-        song_id int not null distkey,
-        artist_id int not null,
-        title text not null,
-        artist_name text not null,
+        artist_id varchar(200) not null,
         artist_latitude double precision,
-        artist_longitude double precision,
         artist_location text,
-        duration double precision not null,
-        year int,
-        num_songs int
+        artist_longitude double precision,
+        artist_name text,
+        duration double precision,
+        num_songs int,
+        song_id varchar(200) not null distkey,        
+        title text,  
+        year int
     )
     """)
 
@@ -61,8 +61,8 @@ songplay_table_create = ("""
             start_time timestamp,
             user_id bigint sortkey,
             level text,
-            song_id bigint,
-            artist_id bigint,
+            song_id varchar(200),
+            artist_id varchar(200),
             session_id bigint,
             location text,
             useragent text
@@ -72,7 +72,7 @@ songplay_table_create = ("""
 user_table_create = ("""
     create table if not exists dim_users (
             user_id bigint not null primary key distkey,
-            first_name text not null,
+            first_name text,
             last_name text,
             gender text,
             level text
@@ -81,9 +81,9 @@ user_table_create = ("""
 
 song_table_create = ("""
     create table if not exists dim_songs (
-            song_id bigint not null primary key distkey,
-            title text not null,
-            artist_id bigint,
+            song_id varchar(200) not null primary key distkey,
+            title text,
+            artist_id varchar(200),
             year int,
             duration double precision
         )
@@ -91,8 +91,8 @@ song_table_create = ("""
 
 artist_table_create = ("""
     create table if not exists dim_artists (
-            artist_id bigint not null primary key distkey,
-            name text not null,
+            artist_id varchar(200) not null primary key distkey,
+            name text,
             location bigint,
             latitude double precision,
             longitude double precision
@@ -102,7 +102,7 @@ artist_table_create = ("""
 time_table_create = ("""
     create table if not exists dim_time (
         start_time timestamp,
-        hour int not null,
+        hour int,
         day int,
         week int,
         year int,
@@ -113,13 +113,16 @@ time_table_create = ("""
 # STAGING TABLES
 
 staging_events_copy = ("""
-copy sporting_event_ticket from 's3://udacity-dend/log_data'
+copy raw_events from 's3://udacity-dend/log_data' format json 'auto'
     credentials 'aws_iam_role={}'
-    gzip delimiter ';' compupdate off region 'us-west-2';
-""").format(config['ARN'])
+    ';' compupdate off region 'us-west-2';
+""").format(config['IAM_ROLE']['ARN'])
 
 staging_songs_copy = ("""
-""").format()
+copy raw_song from 's3://udacity-dend/song_data' format json 'auto'
+    credentials 'aws_iam_role={}'
+    ';' compupdate off region 'us-west-2';
+""").format(config['IAM_ROLE']['ARN'])
 
 # FINAL TABLES
 
