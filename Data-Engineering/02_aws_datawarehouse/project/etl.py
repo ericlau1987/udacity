@@ -5,14 +5,25 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 def load_staging_tables(cur, conn):
     for query in copy_table_queries:
-        cur.execute(query)
-        conn.commit()
+        try:
+            cur.execute(query)
+            conn.commit()
+            # print(f'{query} is finished')
+        except Exception as e:
+            print(f"{query} got errors")
+            print(e)
 
 
 def insert_tables(cur, conn):
     for query in insert_table_queries:
-        cur.execute(query)
-        conn.commit()
+        try:
+            print(f'{query} is starting')
+            cur.execute(query)
+            conn.commit()
+            # print(f'{query} is finished')
+        except Exception as e:
+            print(f"{query} got errors")
+            print(e)
 
 
 def main():
@@ -23,7 +34,7 @@ def main():
     cur = conn.cursor()
     
     load_staging_tables(cur, conn)
-    # insert_tables(cur, conn)
+    insert_tables(cur, conn)
 
     conn.close()
 

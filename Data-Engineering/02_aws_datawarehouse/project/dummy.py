@@ -11,7 +11,7 @@ s3 = boto3.resource('s3',
                     aws_secret_access_key=SECRET
                     )
 
-content_object = s3.Object('udacity-dend', 'log_data/2018/11/2018-11-12-events.json')
+content_object = s3.Object('udacity-dend', 'log_json_path.json')
 file_content = content_object.get()['Body'].read().decode('utf-8')
 # json_content = json.loads(file_content)
 print(file_content)
