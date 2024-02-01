@@ -86,7 +86,7 @@ docker compose down
 
 ## 🎈 Usage <a name="usage"></a>
 
-* Create a `dwh.cfg` file under the directory `02_aws_datawarehouse/project` and fill the `KEY` and `SECRET`. Below is the sample. 
+* Create a `dwh.cfg` file under the directory `data-engineering/data-warehouse-project` and fill the `KEY` and `SECRET`. Below is the sample. 
 ```
 [CLUSTER]
 DB_NAME=dwh
