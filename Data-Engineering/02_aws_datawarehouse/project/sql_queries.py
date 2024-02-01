@@ -4,7 +4,6 @@ import configparser
 # CONFIG
 config = configparser.ConfigParser()
 config.read('dwh.cfg')
-print(config['IAM_ROLE']['ARN'])
 # DROP TABLES
 
 staging_events_table_drop = "drop table if exists staging_events"
@@ -140,18 +139,26 @@ insert into fact_song_plays (
     useragent
 )
 select a.userid::text + '-' + a.ts::text as songplay_id,
-    timestamp 'epoch' + ts / 1000 * interval '1 second' as start_time,
-    a.userid::bigint as user_id,
-    a.level,
-    b.song_id,
-    b.artist_id,
-    a.sessionid as session_id,
-    a.location,
-    a.useragent
+        timestamp 'epoch' + ts / 1000 * interval '1 second' as start_time,
+        a.userid::bigint as user_id,
+        a.level,
+        b.song_id,
+        b.artist_id,
+        a.sessionid as session_id,
+        a.location,
+        a.useragent
 from staging_events a 
-left join dim_songs b 
+left join 
+( 
+    select songs.*,
+        artists.name
+    from dim_songs songs
+    left join dim_artists artists 
+    on songs.artist_id = artists.artist_id
+) b
 on a.song = b.title 
-where b.song_id is not null
+and a.artist = b.name
+where a.page = 'NextSong'
 """)
 
 user_table_insert = ("""
@@ -228,9 +235,38 @@ from staging_events
 where page = 'NextSong'
 """)
 
+staging_events_success = """
+select count(*) from staging_events
+"""
+staging_songs_success = """
+select count(*) from staging_songs
+"""
+
+user_table_success = """
+select count(*) from dim_users
+"""
+
+song_table_success = """
+select count(*) from dim_songs
+"""
+
+artists_table_success = """
+select count(*) from dim_artists
+"""
+
+time_table_success = """
+select count(*) from dim_time
+"""
+
+songplay_table_success = """
+select count(*) from fact_song_plays
+"""
+
 # QUERY LISTS
 
 create_table_queries = [staging_events_table_create, staging_songs_table_create, songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
 drop_table_queries = [staging_events_table_drop, staging_songs_table_drop, songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
 copy_table_queries = [staging_events_copy, staging_songs_copy]
+load_staging_success_queries = [staging_events_success, staging_songs_success]
 insert_table_queries = [user_table_insert, song_table_insert, artist_table_insert, time_table_insert, songplay_table_insert]
+table_success_queries = [user_table_success, song_table_success, artists_table_success, time_table_success, songplay_table_success]
