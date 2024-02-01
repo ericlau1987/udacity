@@ -82,7 +82,7 @@ docker compose down
 
 * Install Extension `Dev Containers` [extension id is `ms-vscode-remote.remote-containers`]
 
-* Open `Dev Containers` and then open folder `data-engineering`. Be aware the default folder would be `/root/`. Please remove it and then you will see `data-engineering` and click it. 
+* Open `Dev Containers` and then open folder `data-engineering`. Be aware the default folder would be `/root/`. Please remove it and then you will see `data-engineering` and click it. Make sure you do it before the following steps.
 
 ## 🎈 Usage <a name="usage"></a>
 
