@@ -6,6 +6,10 @@ config = configparser.ConfigParser()
 config.read('dwh.cfg')
 # DROP TABLES
 
+staging_schema_drop = "drop schema if exists staging"
+dim_schema_drop = "drop schema if exists dim"
+fact_schema_drop = "drop schema if exists fact"
+
 staging_events_table_drop = "drop table if exists staging_events"
 staging_songs_table_drop = "drop table if exists staging_songs"
 songplay_table_drop = "drop table if exists fact_song_plays"
@@ -14,10 +18,17 @@ song_table_drop = "drop table if exists dim_songs"
 artist_table_drop = "drop table if exists dim_artists"
 time_table_drop = "drop table if exists dim_time"
 
+# CREATE SCHEMAS
+
+staging_schema_create = "create schema if not exists staging"
+dim_schema_create = "create schema if not exists dim"
+fact_schema_create = "create schema if not exists fact"
+
+
 # CREATE TABLES
 
 staging_events_table_create= ("""
-    create table if not exists staging_events (
+    create table if not exists staging.staging_events (
         artist text,
         auth text,
         firstname text,
@@ -40,7 +51,7 @@ staging_events_table_create= ("""
     """)
 
 staging_songs_table_create = ("""
-    create table if not exists staging_songs (
+    create table if not exists staging.staging_songs (
         artist_id varchar(200) not null,
         artist_latitude double precision,
         artist_location text,
@@ -55,7 +66,7 @@ staging_songs_table_create = ("""
     """)
 
 songplay_table_create = ("""
-    create table if not exists fact_song_plays (
+    create table if not exists fact.fact_song_plays (
             songplay_id text primary key distkey,
             start_time timestamp,
             user_id bigint sortkey,
@@ -69,7 +80,7 @@ songplay_table_create = ("""
 """)
 
 user_table_create = ("""
-    create table if not exists dim_users (
+    create table if not exists dim.dim_users (
             user_id bigint not null primary key distkey,
             first_name text,
             last_name text,
@@ -79,7 +90,7 @@ user_table_create = ("""
 """)
 
 song_table_create = ("""
-    create table if not exists dim_songs (
+    create table if not exists dim.dim_songs (
             song_id varchar(200) not null primary key distkey,
             title text,
             artist_id varchar(200),
@@ -89,7 +100,7 @@ song_table_create = ("""
 """)
 
 artist_table_create = ("""
-    create table if not exists dim_artists (
+    create table if not exists dim.dim_artists (
             artist_id varchar(200) not null primary key distkey,
             name text,
             location text,
@@ -99,7 +110,7 @@ artist_table_create = ("""
 """)
 
 time_table_create = ("""
-    create table if not exists dim_time (
+    create table if not exists dim.dim_time (
         start_time timestamp,
         hour int,
         day int,
@@ -112,14 +123,14 @@ time_table_create = ("""
 # STAGING TABLES
 
 staging_events_copy = ("""
-copy staging_events from 's3://udacity-dend/log_data' 
+copy staging.staging_events from 's3://udacity-dend/log_data' 
     format as json 'auto ignorecase'
     credentials 'aws_iam_role={}'
     ';' compupdate off region 'us-west-2';
 """).format(config['IAM_ROLE']['ARN'])
 
 staging_songs_copy = ("""
-copy staging_songs from 's3://udacity-dend/song_data' format as json 'auto'
+copy staging.staging_songs from 's3://udacity-dend/song_data' format as json 'auto'
     credentials 'aws_iam_role={}'
     ';' compupdate off region 'us-west-2';
 """).format(config['IAM_ROLE']['ARN'])
@@ -127,7 +138,7 @@ copy staging_songs from 's3://udacity-dend/song_data' format as json 'auto'
 # FINAL TABLES
 
 songplay_table_insert = ("""
-insert into fact_song_plays (
+insert into fact.fact_song_plays (
     songplay_id,
     start_time,
     user_id,
@@ -147,13 +158,13 @@ select a.userid::text + '-' + a.ts::text as songplay_id,
         a.sessionid as session_id,
         a.location,
         a.useragent
-from staging_events a 
+from staging.staging_events a 
 left join 
 ( 
     select songs.*,
         artists.name
-    from dim_songs songs
-    left join dim_artists artists 
+    from dim.dim_songs songs
+    left join dim.dim_artists artists 
     on songs.artist_id = artists.artist_id
 ) b
 on a.song = b.title 
@@ -162,7 +173,7 @@ where a.page = 'NextSong'
 """)
 
 user_table_insert = ("""
-insert into dim_users (
+insert into dim.dim_users (
     user_id,
     first_name,
     last_name,
@@ -175,12 +186,12 @@ select distinct
     lastname as last_name,
     gender,
     level
-from staging_events
+from staging.staging_events
 where page = 'NextSong'
 """)
 
 song_table_insert = ("""
-insert into dim_songs (
+insert into dim.dim_songs (
     song_id,
     title,
     artist_id,
@@ -193,12 +204,12 @@ select distinct
     artist_id,
     year,
     duration
-from staging_songs
+from staging.staging_songs
 where song_id is not null
 """)
 
 artist_table_insert = ("""
-insert into dim_artists (
+insert into dim.dim_artists (
     artist_id,
     name,
     location,
@@ -211,12 +222,12 @@ select distinct
     artist_location as location,
     artist_latitude as latitude,
     artist_longitude as longitude
-from staging_songs
+from staging.staging_songs
 where artist_id is not null
 """)
 
 time_table_insert = ("""
-insert into dim_time (
+insert into dim.dim_time (
     start_time,
     hour,
     day,
@@ -231,35 +242,35 @@ select distinct
     DATE_PART('week', start_time) as week,
     DATE_PART_YEAR(start_time::date) as year,
     DATE_PART('dayofweek', start_time) as weekday
-from staging_events
+from staging.staging_events
 where page = 'NextSong'
 """)
 
 staging_events_success = """
-select count(*) from staging_events
+select count(*) from staging.staging_events
 """
 staging_songs_success = """
-select count(*) from staging_songs
+select count(*) from staging.staging_songs
 """
 
 user_table_success = """
-select count(*) from dim_users
+select count(*) from dim.dim_users
 """
 
 song_table_success = """
-select count(*) from dim_songs
+select count(*) from dim.dim_songs
 """
 
 artists_table_success = """
-select count(*) from dim_artists
+select count(*) from dim.dim_artists
 """
 
 time_table_success = """
-select count(*) from dim_time
+select count(*) from dim.dim_time
 """
 
 songplay_table_success = """
-select count(*) from fact_song_plays
+select count(*) from fact.fact_song_plays
 """
 
 # QUERY LISTS
@@ -270,3 +281,5 @@ copy_table_queries = [staging_events_copy, staging_songs_copy]
 load_staging_success_queries = [staging_events_success, staging_songs_success]
 insert_table_queries = [user_table_insert, song_table_insert, artist_table_insert, time_table_insert, songplay_table_insert]
 table_success_queries = [user_table_success, song_table_success, artists_table_success, time_table_success, songplay_table_success]
+schemas_drop_queries = [staging_schema_drop, dim_schema_drop, fact_schema_drop]
+schemas_create_queries = [staging_schema_create, dim_schema_create, fact_schema_create]

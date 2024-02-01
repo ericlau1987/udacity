@@ -42,17 +42,19 @@ def insert_tables(cur, conn):
             print(f"{success_query} got errors")
             print(e)
 
-def main():
-    config = configparser.ConfigParser()
-    config.read('dwh.cfg')
+def main(cur, conn):
+    # config = configparser.ConfigParser()
+    # config.read('dwh.cfg')
 
-    conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
-    cur = conn.cursor()
-    
+    # conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
+    # cur = conn.cursor()
+    # cur, conn = cur, conn
+    print("ETL process are being performed")
     load_staging_tables(cur, conn)
     insert_tables(cur, conn)
+    print("ETL process are completed")
 
-    conn.close()
+    # conn.close()
 
 
 if __name__ == "__main__":
