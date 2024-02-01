@@ -1,9 +1,11 @@
 import configparser
+import cluster
 
 
 # CONFIG
-config = configparser.ConfigParser()
-config.read('dwh.cfg')
+# config = configparser.ConfigParser()
+# config.read('dwh.cfg')
+arn = cluster.get_IAM_role()
 # DROP TABLES
 
 staging_schema_drop = "drop schema if exists staging"
@@ -127,13 +129,13 @@ copy staging.staging_events from 's3://udacity-dend/log_data'
     format as json 'auto ignorecase'
     credentials 'aws_iam_role={}'
     ';' compupdate off region 'us-west-2';
-""").format(config['IAM_ROLE']['ARN'])
+""").format(arn)
 
 staging_songs_copy = ("""
 copy staging.staging_songs from 's3://udacity-dend/song_data' format as json 'auto'
     credentials 'aws_iam_role={}'
     ';' compupdate off region 'us-west-2';
-""").format(config['IAM_ROLE']['ARN'])
+""").format(arn)
 
 # FINAL TABLES
 

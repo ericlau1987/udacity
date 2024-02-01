@@ -1,6 +1,3 @@
-import create_tables 
-import create_schemas
-import etl
 import cluster
 import configparser
 import pandas as pd
@@ -22,7 +19,7 @@ arn = cluster.get_IAM_role()
 cluster.create_cluster(arn)
 ENDPOINT = cluster.get_cluster_name()
 
-arn = config['IAM_ROLE']['ARN']
+# arn = config['IAM_ROLE']['ARN']
 # ENDPOINT = config['CLUSTER']['HOST']
 connection = f"host={ENDPOINT} dbname={DB_NAME} user={DB_USER} password={DB_PASSWORD} port={DB_PORT}"
 
@@ -32,11 +29,22 @@ print(connection)
 conn = psycopg2.connect(connection)
 cur = conn.cursor()
 
-create_schemas.main(cur, conn)
+def create_redshift_schemas(cur, conn):
+    import create_schemas 
+    create_schemas.main(cur, conn)
 
-create_tables.main(cur, conn)
+def create_redshift_tables(cur, conn):
+    import create_tables
+    create_tables.main(cur, conn)
 
-etl.main(cur, conn)
+def perform_etl(cur, conn):
+    import etl
+    etl.main(cur, conn)
+
+
+create_redshift_schemas(cur, conn)
+create_redshift_tables(cur, conn)
+perform_etl(cur, conn)
 
 conn.close()
 

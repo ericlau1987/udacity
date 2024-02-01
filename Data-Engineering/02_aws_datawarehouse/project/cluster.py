@@ -50,12 +50,10 @@ def get_IAM_role():
                      region_name='us-west-2'
                   )
     try:
-        print('1.2 Attaching Policy')
         iam.attach_role_policy(RoleName=DWH_IAM_ROLE_NAME,
                             PolicyArn="arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
                             )['ResponseMetadata']['HTTPStatusCode']
 
-        print("1.3 Get the IAM role ARN")
         roleArn = iam.get_role(RoleName=DWH_IAM_ROLE_NAME)['Role']['Arn']
 
         return roleArn
@@ -154,7 +152,7 @@ def get_cluster_name():
         myClusterProps = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
         redshiftProperty = prettyRedshiftProps(myClusterProps)
         retries_count = 1
-        while (redshiftProperty[redshiftProperty['Key']=='ClusterStatus']['Value'].values[0] != 'avaliable'):
+        while (redshiftProperty[redshiftProperty['Key']=='ClusterStatus']['Value'].values[0] != 'available'):
 
             print(f'{retries_count}: tries to get EndPoint')
             myClusterProps = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
