@@ -71,13 +71,18 @@ A step by step series of examples that tell you how to get a development env run
 
 ```
 cd data-engineering/02_aws_datawarehouse/project
-docker compose up
+docker compose up -d
 ```
 
 * Stop the docker container 
 ```
 docker compose down
 ```
+* Down VScode
+
+* Install Extension `Dev Containers` [extension id is `ms-vscode-remote.remote-containers`]
+
+* Open `Dev Containers` and then open folder `data-engineering`. Be aware the default folder would be `/root/`. Please remove it and then you will see `data-engineering` and click it. 
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -103,8 +108,8 @@ SONG_DATA='s3://udacity-dend/song_data'
 KEY=#to be filled
 SECRET=#to be filled
 ```
-* Run the project. Be aware that the running time could be 5 ~ 10 minutes.
+* Run the project in cmd. Be aware that the running time could be 5 ~ 10 minutes.
 ```
-cd 02_aws_datawarehouse/project # make sure you run the script under the directory
+cd data-warehouse-project # make sure you run the script under the directory
 python main.py
 ```
