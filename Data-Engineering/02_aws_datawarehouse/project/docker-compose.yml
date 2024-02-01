@@ -1,0 +1,14 @@
+version: '3'
+services:
+  python:
+    container_name: python
+    build: 
+    # The build context is the set of files that your build can access. 
+      # set of files that your build can access. 
+      # Details can be found https://docs.docker.com/build/building/context/#what-is-a-build-context
+      context: ./
+      dockerfile: docker/python/Dockerfile
+    # depends_on expresses startup and shutdown dependencies between services.
+    # The depends_on is to make sure postgres is run first before running dbt
+    volumes:
+      - ./:/data-engineering/data-warehouse-project/
