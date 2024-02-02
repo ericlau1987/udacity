@@ -115,7 +115,7 @@ def create_cluster(arn):
     except Exception as e:
         print(e)
 
-def prettyRedshiftProps(props:redshiftProperty) -> pd.DataFrame:
+def prettyRedshiftProps(props:dict) -> pd.DataFrame:
         """output redshift properties to dataframe
 
         Args:
