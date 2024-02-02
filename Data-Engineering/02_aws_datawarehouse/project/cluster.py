@@ -80,9 +80,12 @@ def delete_IAM_role() -> None:
     except Exception as e:
         print(e)
 
-def create_cluster(arn):
+def create_cluster(arn:str) -> None:
     """create cluster in redshift after creation
-    """   
+
+    Args:
+        arn (str): arn role
+    """     
     print('2.1 Creating a new cluster')
     redshift = boto3.client('redshift',
                        region_name="us-west-2",
