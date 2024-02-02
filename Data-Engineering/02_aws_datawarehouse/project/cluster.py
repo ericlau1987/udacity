@@ -119,7 +119,7 @@ def prettyRedshiftProps(props:dict) -> pd.DataFrame:
         """output redshift properties to dataframe
 
         Args:
-            props (redshiftProperty): properties of redshift cluster
+            props (dict): properties of redshift cluster
 
         Returns:
             status: return properties of cluster. 
