@@ -20,8 +20,10 @@ DB_NAME = config['CLUSTER']['DB_NAME']
 DB_USER = config['CLUSTER']['DB_USER']
 DB_PASSWORD = config['CLUSTER']['DB_PASSWORD']
 
-def create_IAM_role():
-    
+def create_IAM_role() -> None:
+    """create IAM role in redshift
+    """    
+
     iam = boto3.client('iam',aws_access_key_id=KEY,
                      aws_secret_access_key=SECRET,
                      region_name='us-west-2'
@@ -44,7 +46,9 @@ def create_IAM_role():
     except Exception as e:
         print(e)
 
-def get_IAM_role():
+def get_IAM_role() -> None:
+    """get IAM role in redshift after creation
+    """   
     iam = boto3.client('iam',aws_access_key_id=KEY,
                      aws_secret_access_key=SECRET,
                      region_name='us-west-2'
@@ -61,7 +65,9 @@ def get_IAM_role():
     except Exception as e:
         print(e)
 
-def delete_IAM_role():
+def delete_IAM_role() -> None:
+    """delete IAM role in redshift after creation
+    """   
     iam = boto3.client('iam',aws_access_key_id=KEY,
                      aws_secret_access_key=SECRET,
                      region_name='us-west-2'
@@ -75,7 +81,8 @@ def delete_IAM_role():
         print(e)
 
 def create_cluster(arn):
-
+    """create cluster in redshift after creation
+    """   
     print('2.1 Creating a new cluster')
     redshift = boto3.client('redshift',
                        region_name="us-west-2",
@@ -108,12 +115,23 @@ def create_cluster(arn):
     except Exception as e:
         print(e)
 
-def get_cluster_status():
-    def prettyRedshiftProps(props):
-        # pd.set_option('display.max_colwidth', -1)
+def prettyRedshiftProps(props:redshiftProperty) -> pd.DataFrame:
+        """output redshift properties to dataframe
+
+        Args:
+            props (redshiftProperty): properties of redshift cluster
+
+        Returns:
+            status: return properties of cluster. 
+        """        
         keysToShow = ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint", "NumberOfNodes", 'VpcId']
         x = [(k, v) for k,v in props.items() if k in keysToShow]
+
         return pd.DataFrame(data=x, columns=["Key", "Value"])
+
+def get_cluster_status() -> str:
+    """get cluster status in redshift after creation
+    """  
 
     try:
         redshift = boto3.client('redshift',
@@ -129,19 +147,14 @@ def get_cluster_status():
     except Exception as e:
         return 'non-exist'
 
-def get_cluster_name():
-    """_summary_
 
-    Args:
-        target_status (str): _description_
-        'avaliable' or '
-    """    
-    def prettyRedshiftProps(props):
-        # pd.set_option('display.max_colwidth', -1)
-        keysToShow = ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint", "NumberOfNodes", 'VpcId']
-        x = [(k, v) for k,v in props.items() if k in keysToShow]
-        return pd.DataFrame(data=x, columns=["Key", "Value"])
-    
+
+def get_cluster_name() -> str:
+    """get endpoint of cluster
+
+    Returns:
+        str: endpoint of cluster
+    """     
     try:
         redshift = boto3.client('redshift',
                         region_name="us-west-2",
@@ -164,7 +177,9 @@ def get_cluster_name():
     except Exception as e:
         print(e)
 
-def delete_cluster():
+def delete_cluster() -> None:
+    """Delete cluster
+    """    
     try:
         redshift = boto3.client('redshift',
                         region_name="us-west-2",
