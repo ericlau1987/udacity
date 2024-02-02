@@ -67,4 +67,4 @@ def main(cur: psycopg2.extensions.cursor, conn: psycopg2.extensions.connection) 
     print("ETL process are completed")
 
 if __name__ == "__main__":
-    main()
+    main(cur, conn)
