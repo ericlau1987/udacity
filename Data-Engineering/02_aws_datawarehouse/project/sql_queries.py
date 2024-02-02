@@ -69,7 +69,7 @@ staging_songs_table_create = ("""
 
 songplay_table_create = ("""
     create table if not exists fact.fact_song_plays (
-            songplay_id text primary key distkey,
+            songplay_id text not null primary key distkey,
             start_time timestamp,
             user_id bigint sortkey,
             level text,
@@ -113,7 +113,7 @@ artist_table_create = ("""
 
 time_table_create = ("""
     create table if not exists dim.dim_time (
-        start_time timestamp,
+        start_time timestamp not null primary key distkey,
         hour int,
         day int,
         week int,
