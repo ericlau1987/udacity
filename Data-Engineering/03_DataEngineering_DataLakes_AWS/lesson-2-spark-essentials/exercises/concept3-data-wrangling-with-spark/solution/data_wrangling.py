@@ -21,7 +21,7 @@ spark = SparkSession \
     .appName("Wrangling Data") \
     .getOrCreate()
 
-path = "./lesson-2-spark-essentials/exercises/data/sparkify_log_small.json"
+path =  "../../data/sparkify_log_small.json"
 user_log_df = spark.read.json(path)
 
 
@@ -156,3 +156,10 @@ user_log_valid_df \
     .sort("ts") \
     .show()
 
+
+print(user_log_df.select('userId').where(user_log_df.gender=='F').dropDuplicates().count())
+
+artist_played = user_log_df.filter(user_log_df.artist != '').groupby(user_log_df.artist).count().sort(desc('count'))
+artist_played.show()
+
+user_log_df.select('page').dropDuplicates().show()
