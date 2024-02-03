@@ -1,0 +1,56 @@
+version: '3'
+services:
+  # python:
+  #   container_name: python
+  #   build: 
+  #   # The build context is the set of files that your build can access. 
+  #     # set of files that your build can access. 
+  #     # Details can be found https://docs.docker.com/build/building/context/#what-is-a-build-context
+  #     context: ./ 
+  #     dockerfile: docker/python/Dockerfile
+  #   # depends_on expresses startup and shutdown dependencies between services.
+  #   # The depends_on is to make sure postgres is run first before running dbt
+  #   # networks:
+  #   #   - datalakes-aws
+  #   volumes:
+  #     - ./:/data-engineering/
+    # depends_on:
+    #   - spark-master
+  
+  spark-master:
+    image: bitnami/spark:latest
+    command: bin/spark-class org.apache.spark.deploy.master.Master
+    # networks:
+    #   - datalakes-aws
+    ports:
+      - 9090:8080
+      - 7070:7070
+    volumes:
+      - ./:/opt/bitnami/spark/data-engineering/
+  spark-worker-1:
+    image: bitnami/spark:latest
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 2g
+      SPARK_MASTER_URL: spark://spark-master:7077
+  spark-worker-2:
+    image: bitnami/spark:latest
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 2g
+      SPARK_MASTER_URL: spark://spark-master:7077
+
+# networks:
+#   datalakes-aws:
+# volumes:
+#   data-engineering:
+    # name: data-engineering
+    # driver: local
