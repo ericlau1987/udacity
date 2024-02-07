@@ -25,7 +25,7 @@ services:
       # Details can be found https://docs.docker.com/build/building/context/#what-is-a-build-context
       context: ./ 
       dockerfile: docker/spark/Dockerfile
-    command: bin/spark-class org.apache.spark.deploy.master.Master
+    command: /opt/bitnami/spark/bin/spark-class org.apache.spark.deploy.master.Master
     # networks:
     #   - datalakes-aws
     ports:
@@ -35,7 +35,7 @@ services:
       - ./:/opt/bitnami/spark/data-engineering/
   spark-worker-1:
     image: bitnami/spark:latest
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/bitnami/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     environment:
@@ -45,7 +45,7 @@ services:
       SPARK_MASTER_URL: spark://spark-master:7077
   spark-worker-2:
     image: bitnami/spark:latest
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/bitnami/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     environment:

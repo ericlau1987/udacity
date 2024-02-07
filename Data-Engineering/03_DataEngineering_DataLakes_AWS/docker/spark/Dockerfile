@@ -1,7 +1,7 @@
 FROM bitnami/spark:latest
 
 # define default directory within docker
-# WORKDIR /data-engineering
+# WORKDIR /ericliu
 
 # Copy requirements.txt
 COPY ../../requirements.txt requirements.txt

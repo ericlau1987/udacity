@@ -14,14 +14,26 @@ from pyspark.sql import SparkSession
 # 3) read in the data set located at the path "data/sparkify_log_small.json"
 # 4) create a view to use with your SQL queries
 # 5) write code to answer the quiz questions 
+spark = SparkSession \
+    .builder \
+    .appName("Wrangling Data") \
+    .getOrCreate()
 
-
+path =  "../../data/sparkify_log_small.json"
+sparkify_log_df = spark.read.json(path)
+sparkify_log_df.createOrReplaceTempView("user_log_table")
 # # Question 1
 # 
 # Which page did user id ""(empty string) NOT visit?
 
 # TODO: write your code to answer question 1
-
+spark.sql(
+    '''
+    select *
+    from user_log_table
+    limit 10
+    '''
+).show()
 
 # # Question 2 - Reflect
 # 
