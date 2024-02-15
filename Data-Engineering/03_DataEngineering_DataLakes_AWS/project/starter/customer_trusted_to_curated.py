@@ -21,25 +21,23 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
-# Script generated for node S3 - Customer Trusted
-S3CustomerTrusted_node1707371931856 = glueContext.create_dynamic_frame.from_catalog(
+# Script generated for node accelerometer_trusted
+accelerometer_trusted_node1707983376672 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
-    table_name="customer_trusted",
-    transformation_ctx="S3CustomerTrusted_node1707371931856",
+    table_name="accelerometer_trusted",
+    transformation_ctx="accelerometer_trusted_node1707983376672",
 )
 
-# Script generated for node S3 - Accelerometer Trusted
-S3AccelerometerTrusted_node1707372105561 = (
-    glueContext.create_dynamic_frame.from_catalog(
-        database="stedi",
-        table_name="accelerometer_trusted",
-        transformation_ctx="S3AccelerometerTrusted_node1707372105561",
-    )
+# Script generated for node customer_trusted
+customer_trusted_node1707983360836 = glueContext.create_dynamic_frame.from_catalog(
+    database="stedi",
+    table_name="customer_trusted",
+    transformation_ctx="customer_trusted_node1707983360836",
 )
 
 # Script generated for node SQL Query
 SqlQuery0 = """
-select * 
+select a.* 
 from customer_trusted a 
 inner join 
 ( 
@@ -48,35 +46,28 @@ inner join
 ) b 
 on a.email = b.user
 """
-SQLQuery_node1707376916777 = sparkSqlQuery(
+SQLQuery_node1707983398919 = sparkSqlQuery(
     glueContext,
     query=SqlQuery0,
     mapping={
-        "customer_trusted": S3CustomerTrusted_node1707371931856,
-        "accelerometer_trusted": S3AccelerometerTrusted_node1707372105561,
+        "accelerometer_trusted": accelerometer_trusted_node1707983376672,
+        "customer_trusted": customer_trusted_node1707983360836,
     },
-    transformation_ctx="SQLQuery_node1707376916777",
+    transformation_ctx="SQLQuery_node1707983398919",
 )
 
-# Script generated for node Drop Fields
-DropFields_node1707372162076 = DropFields.apply(
-    frame=SQLQuery_node1707376916777,
-    paths=["z", "user", "y", "x", "timestamp"],
-    transformation_ctx="DropFields_node1707372162076",
-)
-
-# Script generated for node S3 - Customers Curated
-S3CustomersCurated_node1707372174271 = glueContext.getSink(
-    path="s3://ericliu-udacity-lake-house/customer/curated/",
+# Script generated for node customer_curated
+customer_curated_node1707983474157 = glueContext.getSink(
+    path="s3://ericliu-udacity-lake-house/customers/curated/",
     connection_type="s3",
     updateBehavior="UPDATE_IN_DATABASE",
     partitionKeys=[],
     enableUpdateCatalog=True,
-    transformation_ctx="S3CustomersCurated_node1707372174271",
+    transformation_ctx="customer_curated_node1707983474157",
 )
-S3CustomersCurated_node1707372174271.setCatalogInfo(
+customer_curated_node1707983474157.setCatalogInfo(
     catalogDatabase="stedi", catalogTableName="customer_curated"
 )
-S3CustomersCurated_node1707372174271.setFormat("json")
-S3CustomersCurated_node1707372174271.writeFrame(DropFields_node1707372162076)
+customer_curated_node1707983474157.setFormat("json")
+customer_curated_node1707983474157.writeFrame(SQLQuery_node1707983398919)
 job.commit()
