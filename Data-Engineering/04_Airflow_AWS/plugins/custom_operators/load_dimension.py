@@ -32,4 +32,5 @@ class LoadDimensionOperator(BaseOperator):
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         self.log.info(f'{self.schema}.{self.table} is being inserted')
+        redshift.run(f'drop table if exists {self.schema}.{self.table}')
         redshift.run(self.sql.format(self.schema, self.table))

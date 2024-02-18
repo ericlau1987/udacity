@@ -14,6 +14,11 @@ from udacity.common.final_project_sql_statements import SqlQueries
 default_args = {
     'owner': 'udacity',
     'start_date': pendulum.now(),
+    'retries': 3,
+    'retry_delay': timedelta(minutes=3),
+    'email_on_retry': True,
+    'catchup': False,
+    'Depends_on_past': False
 }
 
 @dag(
@@ -139,13 +144,24 @@ def final_project():
         sql = SqlQueries.time_table_insert
     )
 
-    # run_quality_checks = DataQualityOperator(
-    #     task_id='Run_data_quality_checks',
-    # )
+    run_quality_checks = DataQualityOperator(
+        task_id='Run_data_quality_checks',
+        redshift_conn_id='redshift',
+        aws_credentials_id='aws_credentials',
+        params={
+            'tables': ['staging.staging_events', 'staging.staging_songs',
+                'fact.fact_song_plays', 'dim.dim_users', 
+                'dim.dim_songs', 'dim.dim_artists', 'dim.dim_time'
+            ],
+        }
+    )
 
     start_operator >> create_stage_schema >> drop_stage_events_table >> create_events_table >> stage_events_to_redshift >> create_fact_schema >> load_songplays_table
     start_operator >> create_stage_schema >> drop_stage_songs_table >> create_songs_table >> stage_songs_to_redshift >> create_fact_schema >> load_songplays_table
-    load_songplays_table >> create_dim_schema >> load_user_dimension_table >> load_song_dimension_table >> load_artist_dimension_table >> load_time_dimension_table
-
+    load_songplays_table >> create_dim_schema  
+    create_dim_schema >> load_user_dimension_table >> run_quality_checks
+    create_dim_schema >> load_song_dimension_table >> run_quality_checks
+    create_dim_schema >> load_artist_dimension_table >> run_quality_checks
+    create_dim_schema >> load_time_dimension_table >> run_quality_checks
 
 final_project_dag = final_project()
