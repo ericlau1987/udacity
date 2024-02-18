@@ -10,14 +10,15 @@ class StageToRedshiftOperator(BaseOperator):
     def __init__(self,
                  # Define your operators params (with defaults) here
                  # Example:
-                redshift_conn_id:str,
-                aws_credentials_id:str,
-                schema:str,
-                table:str,
-                s3_bucket:str,
-                s3_key:str,
+                redshift_conn_id:str='',
+                aws_credentials_id:str='',
+                schema:str='',
+                table:str='',
+                s3_bucket:str='',
+                s3_key:str='',
                 delimiter=",",
                 ignore_headers=1,
+                sql:str='',
                 *args, **kwargs):
 
         super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
@@ -31,34 +32,22 @@ class StageToRedshiftOperator(BaseOperator):
         self.s3_key = s3_key
         self.delimiter = delimiter
         self.ignore_headers = ignore_headers
-        self.copy_sql = """
-            COPY {}.{}
-            FROM '{}'
-            ACCESS_KEY_ID '{}'
-            SECRET_ACCESS_KEY '{}'
-            IGNOREHEADER {}
-            DELIMITER '{}'
-        """
+        self.sql = sql
 
     def execute(self, context):
         aws_hook = AwsHook(self.aws_credentials_id)
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
-        self.log.info("Clearing data from destination Redshift table")
-        redshift.run(f"Delete from {self.schema}.{self.table}")
-
         self.log.info("Copying data from S3 to Redshift")
         rendered_key = self.s3_key.format(**context)
         s3_path = f"s3://{self.s3_bucket}/{rendered_key}"
-        formatted_sql = self.copy_sql.format(
+        formatted_sql = self.sql.format(
             self.schema,
             self.table,
-            self.s3_path,
+            s3_path,
             credentials.access_key,
             credentials.secret_key,
-            self.ignore_headers,
-            self.delimiter
         )
 
         redshift.run(formatted_sql)

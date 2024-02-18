@@ -1,0 +1,58 @@
+[2024-02-18T08:03:21.172+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Stage_songs manual__2024-02-18T07:54:39.290957+00:00 [queued]>
+[2024-02-18T08:03:21.176+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Stage_songs manual__2024-02-18T07:54:39.290957+00:00 [queued]>
+[2024-02-18T08:03:21.176+0000] {taskinstance.py:2171} INFO - Starting attempt 3 of 3
+[2024-02-18T08:03:21.182+0000] {taskinstance.py:2192} INFO - Executing <Task(StageToRedshiftOperator): Stage_songs> on 2024-02-18 07:54:39.290957+00:00
+[2024-02-18T08:03:21.186+0000] {standard_task_runner.py:60} INFO - Started process 22408 to run task
+[2024-02-18T08:03:21.188+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Stage_songs', 'manual__2024-02-18T07:54:39.290957+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmp8aiwgplp']
+[2024-02-18T08:03:21.190+0000] {standard_task_runner.py:88} INFO - Job 43: Subtask Stage_songs
+[2024-02-18T08:03:21.213+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.Stage_songs manual__2024-02-18T07:54:39.290957+00:00 [running]> on host 6b28116ad14a
+[2024-02-18T08:03:21.247+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Stage_songs' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T07:54:39.290957+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T07:54:39.290957+00:00'
+[2024-02-18T08:03:21.253+0000] {base.py:83} INFO - Using connection ID 'aws_credentials' for task execution.
+[2024-02-18T08:03:21.253+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_credentials', conn_type='aws') credentials retrieved from login and password.
+[2024-02-18T08:03:21.259+0000] {stage_redshift.py:49} INFO - Copying data from S3 to Redshift
+[2024-02-18T08:03:21.260+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.260+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'next_ds' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds }}' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.260+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'next_ds_nodash' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds_nodash }}' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.260+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'next_execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_end' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.261+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'prev_ds' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.261+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'prev_ds_nodash' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.261+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'prev_execution_date' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.261+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'prev_execution_date_success' from the template is deprecated and will be removed in a future version. Please use 'prev_data_interval_start_success' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.262+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'tomorrow_ds' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.262+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'tomorrow_ds_nodash' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.262+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'yesterday_ds' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.262+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'yesterday_ds_nodash' from the template is deprecated and will be removed in a future version.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-02-18T08:03:21.266+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T08:03:28.840+0000] {sql.py:432} INFO - Running statement: 
+         copy staging.staging_songs from 's3://ericliu-udacity-lake-house/song-data'  
+         format as json 'auto'
+         ACCESS_KEY_ID 'AKIAXNLLYAMLPRRBUZMF'
+        SECRET_ACCESS_KEY '***';
+        , parameters: None
+[2024-02-18T08:03:54.431+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=Stage_songs, execution_date=20240218T075439, start_date=20240218T080321, end_date=20240218T080354
+[2024-02-18T08:03:54.455+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-18T08:03:54.468+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,4 +1,5 @@
 from airflow.hooks.postgres_hook import PostgresHook
+from airflow.contrib.hooks.aws_hook import AwsHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
@@ -10,13 +11,25 @@ class LoadDimensionOperator(BaseOperator):
     def __init__(self,
                  # Define your operators params (with defaults) here
                  # Example:
-                 # conn_id = your-connection-name
-                 *args, **kwargs):
+                redshift_conn_id:str='',
+                aws_credentials_id:str='',
+                schema:str='',
+                table:str='',
+                sql:str='',
+                *args, **kwargs):
 
         super(LoadDimensionOperator, self).__init__(*args, **kwargs)
         # Map params here
         # Example:
-        # self.conn_id = conn_id
+        self.redshift_conn_id = redshift_conn_id
+        self.aws_credentials_id = aws_credentials_id
+        self.schema = schema
+        self.table = table 
+        self.sql = sql
 
     def execute(self, context):
-        self.log.info('LoadDimensionOperator not implemented yet')
+        aws_hook = AwsHook(self.aws_credentials_id)
+        credentials = aws_hook.get_credentials()
+        redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
+        self.log.info(f'{self.schema}.{self.table} is being inserted')
+        redshift.run(self.sql.format(self.schema, self.table))
