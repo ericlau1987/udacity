@@ -1,0 +1,301 @@
+[2024-02-14T16:03:07.141+0000] {processor.py:161} INFO - Started process (PID=54) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:07.142+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:03:07.144+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:07.144+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:07.241+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:07.298+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:07.297+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:03:07.309+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:07.309+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:03:07.237964+00:00, run_after=2024-02-15T16:03:07.237964+00:00
+[2024-02-14T16:03:07.320+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.182 seconds
+[2024-02-14T16:03:37.453+0000] {processor.py:161} INFO - Started process (PID=111) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:37.454+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:03:37.457+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:37.457+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:37.527+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:03:37.574+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:37.574+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:03:37.584+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:03:37.584+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:03:37.525509+00:00, run_after=2024-02-15T16:03:37.525509+00:00
+[2024-02-14T16:03:37.594+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.144 seconds
+[2024-02-14T16:04:08.226+0000] {processor.py:161} INFO - Started process (PID=168) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:08.228+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:04:08.230+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:08.230+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:08.301+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:08.350+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:08.350+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:04:08.360+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:08.360+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:04:08.299362+00:00, run_after=2024-02-15T16:04:08.299362+00:00
+[2024-02-14T16:04:08.369+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.147 seconds
+[2024-02-14T16:04:38.479+0000] {processor.py:161} INFO - Started process (PID=225) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:38.480+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:04:38.482+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:38.481+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:38.543+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:04:38.592+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:38.592+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:04:38.602+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:04:38.602+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:04:38.541699+00:00, run_after=2024-02-15T16:04:38.541699+00:00
+[2024-02-14T16:04:38.611+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.134 seconds
+[2024-02-14T16:05:08.758+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:08.759+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:05:08.761+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:08.761+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:08.832+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:08.882+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:08.882+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:05:08.892+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:08.892+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:05:08.830849+00:00, run_after=2024-02-15T16:05:08.830849+00:00
+[2024-02-14T16:05:08.901+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.148 seconds
+[2024-02-14T16:05:38.991+0000] {processor.py:161} INFO - Started process (PID=339) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:38.992+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:05:38.993+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:38.993+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:39.051+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:05:39.100+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:39.100+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:05:39.203+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:05:39.203+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:05:39.050294+00:00, run_after=2024-02-15T16:05:39.050294+00:00
+[2024-02-14T16:05:39.212+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.224 seconds
+[2024-02-14T16:06:09.231+0000] {processor.py:161} INFO - Started process (PID=399) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:09.232+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:06:09.233+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:09.233+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:09.296+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:09.346+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:09.346+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:06:09.448+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:09.448+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:06:09.294887+00:00, run_after=2024-02-15T16:06:09.294887+00:00
+[2024-02-14T16:06:09.457+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.229 seconds
+[2024-02-14T16:06:39.501+0000] {processor.py:161} INFO - Started process (PID=459) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:39.501+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:06:39.503+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:39.503+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:39.563+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:06:39.609+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:39.609+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:06:39.707+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:06:39.706+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:06:39.562206+00:00, run_after=2024-02-15T16:06:39.562206+00:00
+[2024-02-14T16:06:39.715+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.217 seconds
+[2024-02-14T16:07:09.743+0000] {processor.py:161} INFO - Started process (PID=519) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:09.744+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:07:09.746+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:09.746+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:09.804+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:09.847+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:09.847+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:07:09.938+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:09.938+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:07:09.802453+00:00, run_after=2024-02-15T16:07:09.802453+00:00
+[2024-02-14T16:07:09.946+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.205 seconds
+[2024-02-14T16:07:39.961+0000] {processor.py:161} INFO - Started process (PID=576) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:39.962+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:07:39.964+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:39.964+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:40.037+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:07:40.088+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:40.088+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:07:40.200+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:07:40.199+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:07:40.035959+00:00, run_after=2024-02-15T16:07:40.035959+00:00
+[2024-02-14T16:07:40.209+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.250 seconds
+[2024-02-14T16:08:10.241+0000] {processor.py:161} INFO - Started process (PID=633) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:10.242+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:08:10.244+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:10.244+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:10.303+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:10.347+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:10.346+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:08:10.442+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:10.441+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:08:10.301143+00:00, run_after=2024-02-15T16:08:10.301143+00:00
+[2024-02-14T16:08:10.450+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.210 seconds
+[2024-02-14T16:08:40.466+0000] {processor.py:161} INFO - Started process (PID=690) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:40.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:08:40.468+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:40.468+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:40.528+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:08:40.573+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:40.573+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:08:40.582+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:08:40.582+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:08:40.526934+00:00, run_after=2024-02-15T16:08:40.526934+00:00
+[2024-02-14T16:08:40.677+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.213 seconds
+[2024-02-14T16:09:11.602+0000] {processor.py:161} INFO - Started process (PID=747) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:11.603+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:09:11.606+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:11.605+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:11.684+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:11.830+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:11.830+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:09:11.839+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:11.839+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:09:11.682128+00:00, run_after=2024-02-15T16:09:11.682128+00:00
+[2024-02-14T16:09:11.850+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.251 seconds
+[2024-02-14T16:09:42.675+0000] {processor.py:161} INFO - Started process (PID=804) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:42.676+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:09:42.679+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:42.679+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:42.751+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:09:42.893+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:42.893+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:09:42.902+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:09:42.902+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:09:42.749918+00:00, run_after=2024-02-15T16:09:42.749918+00:00
+[2024-02-14T16:09:42.911+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.241 seconds
+[2024-02-14T16:10:12.964+0000] {processor.py:161} INFO - Started process (PID=863) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:12.965+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:10:12.966+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:12.966+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:13.030+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:13.166+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:13.166+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:10:13.175+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:13.175+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:10:13.028345+00:00, run_after=2024-02-15T16:10:13.028345+00:00
+[2024-02-14T16:10:13.184+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.222 seconds
+[2024-02-14T16:10:43.257+0000] {processor.py:161} INFO - Started process (PID=922) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:43.257+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:10:43.259+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:43.259+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:43.328+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:10:43.477+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:43.477+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:10:43.486+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:10:43.486+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:10:43.326055+00:00, run_after=2024-02-15T16:10:43.326055+00:00
+[2024-02-14T16:10:43.496+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.242 seconds
+[2024-02-14T16:11:13.531+0000] {processor.py:161} INFO - Started process (PID=981) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:13.531+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:11:13.533+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:13.533+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:13.597+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:13.739+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:13.739+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:11:13.749+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:13.748+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:11:13.595769+00:00, run_after=2024-02-15T16:11:13.595769+00:00
+[2024-02-14T16:11:13.758+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.230 seconds
+[2024-02-14T16:11:43.863+0000] {processor.py:161} INFO - Started process (PID=1041) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:43.864+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:11:43.865+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:43.865+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:43.930+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:11:44.078+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:44.078+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:11:44.088+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:11:44.087+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:11:43.928796+00:00, run_after=2024-02-15T16:11:43.928796+00:00
+[2024-02-14T16:11:44.097+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.236 seconds
+[2024-02-14T16:12:14.164+0000] {processor.py:161} INFO - Started process (PID=1099) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:14.165+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:12:14.166+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:14.166+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:14.230+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:14.374+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:14.374+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:12:14.383+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:14.383+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:12:14.228195+00:00, run_after=2024-02-15T16:12:14.228195+00:00
+[2024-02-14T16:12:14.392+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.230 seconds
+[2024-02-14T16:12:44.449+0000] {processor.py:161} INFO - Started process (PID=1158) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:44.450+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:12:44.451+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:44.451+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:44.514+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:12:44.646+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:44.646+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:12:44.654+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:12:44.654+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:12:44.512436+00:00, run_after=2024-02-15T16:12:44.512436+00:00
+[2024-02-14T16:12:44.662+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.216 seconds
+[2024-02-14T16:13:15.137+0000] {processor.py:161} INFO - Started process (PID=1205) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:15.137+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:13:15.139+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:15.139+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:15.203+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:15.340+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:15.340+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:13:15.349+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:15.349+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:13:15.201982+00:00, run_after=2024-02-15T16:13:15.201982+00:00
+[2024-02-14T16:13:15.357+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.224 seconds
+[2024-02-14T16:13:45.593+0000] {processor.py:161} INFO - Started process (PID=1263) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:45.594+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:13:45.596+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:45.595+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:45.655+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:13:45.790+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:45.790+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:13:45.800+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:13:45.800+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:13:45.653792+00:00, run_after=2024-02-15T16:13:45.653792+00:00
+[2024-02-14T16:13:45.808+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.218 seconds
+[2024-02-14T16:14:16.528+0000] {processor.py:161} INFO - Started process (PID=1319) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:16.530+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:14:16.533+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:16.533+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:16.703+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:16.750+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:16.750+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:14:16.760+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:16.760+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:14:16.702105+00:00, run_after=2024-02-15T16:14:16.702105+00:00
+[2024-02-14T16:14:16.769+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.247 seconds
+[2024-02-14T16:14:46.834+0000] {processor.py:161} INFO - Started process (PID=1377) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:46.835+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:14:46.836+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:46.836+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:46.991+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:14:47.037+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:47.037+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:14:47.047+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:14:47.047+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:14:46.990188+00:00, run_after=2024-02-15T16:14:46.990188+00:00
+[2024-02-14T16:14:47.056+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.225 seconds
+[2024-02-14T16:15:17.990+0000] {processor.py:161} INFO - Started process (PID=1432) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:17.991+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:15:17.994+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:17.994+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:18.166+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:18.208+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:18.208+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:15:18.218+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:18.218+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:15:18.165733+00:00, run_after=2024-02-15T16:15:18.165733+00:00
+[2024-02-14T16:15:18.228+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.242 seconds
+[2024-02-14T16:15:48.283+0000] {processor.py:161} INFO - Started process (PID=1489) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:48.283+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:15:48.285+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:48.285+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:48.442+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:15:48.486+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:48.485+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:15:48.495+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:15:48.495+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:15:48.441927+00:00, run_after=2024-02-15T16:15:48.441927+00:00
+[2024-02-14T16:15:48.505+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.225 seconds
+[2024-02-14T16:16:19.432+0000] {processor.py:161} INFO - Started process (PID=1545) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:19.434+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:16:19.438+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:19.437+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:19.604+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:19.647+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:19.647+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:16:19.656+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:19.656+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:16:19.603204+00:00, run_after=2024-02-15T16:16:19.603204+00:00
+[2024-02-14T16:16:19.665+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.240 seconds
+[2024-02-14T16:16:50.486+0000] {processor.py:161} INFO - Started process (PID=1602) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:50.487+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:16:50.492+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:50.491+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:50.650+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:16:50.693+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:50.693+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:16:50.702+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:16:50.702+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:16:50.649075+00:00, run_after=2024-02-15T16:16:50.649075+00:00
+[2024-02-14T16:16:50.711+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.232 seconds
+[2024-02-14T16:17:20.780+0000] {processor.py:161} INFO - Started process (PID=1661) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:20.781+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:17:20.782+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:20.782+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:20.930+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:20.973+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:20.973+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:17:20.982+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:20.982+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:17:20.928746+00:00, run_after=2024-02-15T16:17:20.928746+00:00
+[2024-02-14T16:17:20.992+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.214 seconds
+[2024-02-14T16:17:51.022+0000] {processor.py:161} INFO - Started process (PID=1718) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:51.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:17:51.024+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:51.024+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:51.172+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:17:51.216+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:51.216+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:17:51.225+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:17:51.225+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:17:51.171405+00:00, run_after=2024-02-15T16:17:51.171405+00:00
+[2024-02-14T16:17:51.233+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.214 seconds
+[2024-02-14T16:18:21.271+0000] {processor.py:161} INFO - Started process (PID=1775) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:21.272+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:18:21.274+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:21.273+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:21.431+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:21.475+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:21.475+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:18:21.485+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:21.485+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:18:21.430583+00:00, run_after=2024-02-15T16:18:21.430583+00:00
+[2024-02-14T16:18:21.493+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.225 seconds
+[2024-02-14T16:18:51.601+0000] {processor.py:161} INFO - Started process (PID=1835) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:51.602+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:18:51.604+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:51.603+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:51.767+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:18:51.815+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:51.815+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:18:51.824+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:18:51.824+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:18:51.766176+00:00, run_after=2024-02-15T16:18:51.766176+00:00
+[2024-02-14T16:18:51.834+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.235 seconds
+[2024-02-14T16:19:22.040+0000] {processor.py:161} INFO - Started process (PID=1893) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:22.041+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:19:22.042+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:22.042+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:22.195+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:22.240+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:22.239+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:19:22.249+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:22.249+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:19:22.194695+00:00, run_after=2024-02-15T16:19:22.194695+00:00
+[2024-02-14T16:19:22.259+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.221 seconds
+[2024-02-14T16:19:52.317+0000] {processor.py:161} INFO - Started process (PID=1952) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:52.318+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:19:52.319+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:52.319+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:52.476+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:19:52.521+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:52.521+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:19:52.530+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:19:52.530+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:19:52.475898+00:00, run_after=2024-02-15T16:19:52.475898+00:00
+[2024-02-14T16:19:52.538+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.223 seconds
+[2024-02-14T16:20:22.559+0000] {processor.py:161} INFO - Started process (PID=2013) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:22.560+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:20:22.561+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:22.561+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:22.703+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:22.742+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:22.742+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:20:22.750+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:22.750+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:20:22.702064+00:00, run_after=2024-02-15T16:20:22.702064+00:00
+[2024-02-14T16:20:22.759+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.202 seconds
+[2024-02-14T16:20:52.985+0000] {processor.py:161} INFO - Started process (PID=2070) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:52.985+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:20:52.987+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:52.987+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:53.171+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:20:53.223+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:53.222+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:20:53.233+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:20:53.233+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:20:53.170727+00:00, run_after=2024-02-15T16:20:53.170727+00:00
+[2024-02-14T16:20:53.242+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.260 seconds
+[2024-02-14T16:21:23.289+0000] {processor.py:161} INFO - Started process (PID=2125) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:23.290+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:21:23.291+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:23.291+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:23.453+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:23.500+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:23.499+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:21:23.508+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:23.508+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:21:23.452598+00:00, run_after=2024-02-15T16:21:23.452598+00:00
+[2024-02-14T16:21:23.517+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.230 seconds
+[2024-02-14T16:21:53.746+0000] {processor.py:161} INFO - Started process (PID=2181) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:53.746+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:21:53.748+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:53.748+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:53.914+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:21:53.963+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:53.963+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:21:53.973+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:21:53.973+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:21:53.913378+00:00, run_after=2024-02-15T16:21:53.913378+00:00
+[2024-02-14T16:21:53.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.239 seconds
+[2024-02-14T16:22:24.345+0000] {processor.py:161} INFO - Started process (PID=2235) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:24.346+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:22:24.347+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:24.347+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:24.513+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:24.566+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:24.566+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:22:24.577+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:24.577+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:22:24.512518+00:00, run_after=2024-02-15T16:22:24.512518+00:00
+[2024-02-14T16:22:24.586+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.243 seconds
+[2024-02-14T16:22:54.676+0000] {processor.py:161} INFO - Started process (PID=2292) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:54.677+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:22:54.678+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:54.678+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:54.828+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:22:54.870+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:54.870+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:22:54.879+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:22:54.879+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:22:54.827142+00:00, run_after=2024-02-15T16:22:54.827142+00:00
+[2024-02-14T16:22:54.888+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.214 seconds
+[2024-02-14T16:23:25.132+0000] {processor.py:161} INFO - Started process (PID=2343) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:25.133+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:23:25.134+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:25.134+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:25.198+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:25.243+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:25.243+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:23:25.253+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:25.252+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:23:25.196174+00:00, run_after=2024-02-15T16:23:25.196174+00:00
+[2024-02-14T16:23:25.262+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.132 seconds
+[2024-02-14T16:23:55.358+0000] {processor.py:161} INFO - Started process (PID=2400) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:55.359+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:23:55.361+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:55.361+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:55.429+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:23:55.481+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:55.481+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:23:55.493+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:23:55.493+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:23:55.427722+00:00, run_after=2024-02-15T16:23:55.427722+00:00
+[2024-02-14T16:23:55.503+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.150 seconds
+[2024-02-14T16:24:25.590+0000] {processor.py:161} INFO - Started process (PID=2457) to work on /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:24:25.592+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/l3_e3_connections_hooks.py for tasks to queue
+[2024-02-14T16:24:25.594+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:24:25.594+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:24:25.666+0000] {processor.py:840} INFO - DAG(s) 'list_keys' retrieved from /opt/airflow/dags/l3_e3_connections_hooks.py
+[2024-02-14T16:24:25.713+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:24:25.713+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-14T16:24:25.723+0000] {logging_mixin.py:188} INFO - [2024-02-14T16:24:25.723+0000] {dag.py:3820} INFO - Setting next_dagrun for list_keys to 2024-02-14T16:24:25.664938+00:00, run_after=2024-02-15T16:24:25.664938+00:00
+[2024-02-14T16:24:25.732+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/l3_e3_connections_hooks.py took 0.148 seconds

@@ -1,0 +1,20 @@
+[2024-02-18T07:49:59.751+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.drop_staging_events_table manual__2024-02-18T07:49:44.677697+00:00 [queued]>
+[2024-02-18T07:49:59.755+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.drop_staging_events_table manual__2024-02-18T07:49:44.677697+00:00 [queued]>
+[2024-02-18T07:49:59.755+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-02-18T07:49:59.762+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): drop_staging_events_table> on 2024-02-18 07:49:44.677697+00:00
+[2024-02-18T07:49:59.766+0000] {standard_task_runner.py:60} INFO - Started process 22170 to run task
+[2024-02-18T07:49:59.768+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'drop_staging_events_table', 'manual__2024-02-18T07:49:44.677697+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmpa825cv32']
+[2024-02-18T07:49:59.770+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask drop_staging_events_table
+[2024-02-18T07:49:59.795+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.drop_staging_events_table manual__2024-02-18T07:49:44.677697+00:00 [running]> on host 6b28116ad14a
+[2024-02-18T07:49:59.833+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='drop_staging_events_table' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T07:49:44.677697+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T07:49:44.677697+00:00'
+[2024-02-18T07:49:59.834+0000] {sql.py:276} INFO - Executing: 
+    drop table if exists staging.staging_events
+    
+[2024-02-18T07:49:59.839+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T07:49:59.860+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T07:50:05.299+0000] {sql.py:432} INFO - Running statement: 
+    drop table if exists staging.staging_events
+    , parameters: None
+[2024-02-18T07:50:09.739+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=drop_staging_events_table, execution_date=20240218T074944, start_date=20240218T074959, end_date=20240218T075009
+[2024-02-18T07:50:09.803+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-18T07:50:09.822+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

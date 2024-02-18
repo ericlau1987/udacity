@@ -1,0 +1,31 @@
+[2024-02-17T14:52:01.332+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Stage_events manual__2024-02-17T13:58:09.100590+00:00 [queued]>
+[2024-02-17T14:52:01.335+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Stage_events manual__2024-02-17T13:58:09.100590+00:00 [queued]>
+[2024-02-17T14:52:01.336+0000] {taskinstance.py:2171} INFO - Starting attempt 2 of 2
+[2024-02-17T14:52:01.342+0000] {taskinstance.py:2192} INFO - Executing <Task(StageToRedshiftOperator): Stage_events> on 2024-02-17 13:58:09.100590+00:00
+[2024-02-17T14:52:01.345+0000] {standard_task_runner.py:60} INFO - Started process 17216 to run task
+[2024-02-17T14:52:01.348+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Stage_events', 'manual__2024-02-17T13:58:09.100590+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmpl7dj463b']
+[2024-02-17T14:52:01.350+0000] {standard_task_runner.py:88} INFO - Job 23: Subtask Stage_events
+[2024-02-17T14:52:01.382+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.Stage_events manual__2024-02-17T13:58:09.100590+00:00 [running]> on host 6b28116ad14a
+[2024-02-17T14:52:01.416+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Stage_events' AIRFLOW_CTX_EXECUTION_DATE='2024-02-17T13:58:09.100590+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-17T13:58:09.100590+00:00'
+[2024-02-17T14:52:01.422+0000] {base.py:83} INFO - Using connection ID 'aws_credentials' for task execution.
+[2024-02-17T14:52:01.423+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_credentials', conn_type='aws') credentials retrieved from login and password.
+[2024-02-17T14:52:01.429+0000] {stage_redshift.py:48} INFO - Drop table staging.staging_events from destination Redshift table
+[2024-02-17T14:52:01.433+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-17T14:52:03.675+0000] {sql.py:432} INFO - Running statement: Drop table if exists staging.staging_events, parameters: None
+[2024-02-17T14:52:04.214+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/opt/airflow/plugins/custom_operators/stage_redshift.py", line 49, in execute
+    redshift.run(f"Drop table if exists {self.schema}.{self.table}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 437, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.InvalidSchemaName: schema "staging" does not exist
+
+[2024-02-17T14:52:04.228+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=final_project, task_id=Stage_events, execution_date=20240217T135809, start_date=20240217T145201, end_date=20240217T145204
+[2024-02-17T14:52:04.240+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 23 for task Stage_events (schema "staging" does not exist
+; 17216)
+[2024-02-17T14:52:04.256+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-17T14:52:04.268+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

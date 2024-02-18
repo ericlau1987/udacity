@@ -1,0 +1,52 @@
+[2024-02-18T08:56:50.756+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Load_songplays_fact_table manual__2024-02-18T08:55:13.724214+00:00 [queued]>
+[2024-02-18T08:56:50.761+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Load_songplays_fact_table manual__2024-02-18T08:55:13.724214+00:00 [queued]>
+[2024-02-18T08:56:50.761+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-02-18T08:56:50.768+0000] {taskinstance.py:2192} INFO - Executing <Task(LoadFactOperator): Load_songplays_fact_table> on 2024-02-18 08:55:13.724214+00:00
+[2024-02-18T08:56:50.771+0000] {standard_task_runner.py:60} INFO - Started process 23310 to run task
+[2024-02-18T08:56:50.774+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Load_songplays_fact_table', 'manual__2024-02-18T08:55:13.724214+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmpehs_rs3p']
+[2024-02-18T08:56:50.776+0000] {standard_task_runner.py:88} INFO - Job 70: Subtask Load_songplays_fact_table
+[2024-02-18T08:56:50.802+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.Load_songplays_fact_table manual__2024-02-18T08:55:13.724214+00:00 [running]> on host 6b28116ad14a
+[2024-02-18T08:56:50.841+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Load_songplays_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T08:55:13.724214+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T08:55:13.724214+00:00'
+[2024-02-18T08:56:50.847+0000] {base.py:83} INFO - Using connection ID 'aws_credentials' for task execution.
+[2024-02-18T08:56:50.848+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_credentials', conn_type='aws') credentials retrieved from login and password.
+[2024-02-18T08:56:50.854+0000] {load_fact.py:34} INFO - fact.fact_song_plays is being inserted
+[2024-02-18T08:56:50.858+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T08:56:54.905+0000] {sql.py:432} INFO - Running statement: 
+        SELECT
+            md5(events.sessionid || events.start_time) songplay_id,
+            events.start_time, 
+            events.userid, 
+            events.level, 
+            songs.song_id, 
+            songs.artist_id, 
+            events.sessionid, 
+            events.location, 
+            events.useragent
+        into fact.fact_song_plays
+        FROM (
+            SELECT TIMESTAMP 'epoch' + ts/1000 * interval '1 second' AS start_time, *
+            FROM staging_events
+            WHERE page='NextSong'
+        ) events
+        LEFT JOIN staging_songs songs
+        ON events.song = songs.title
+            AND events.artist = songs.artist_name
+            AND events.length = songs.duration
+    , parameters: None
+[2024-02-18T08:56:56.049+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/opt/airflow/plugins/custom_operators/load_fact.py", line 35, in execute
+    redshift.run(self.sql.format(self.schema, self.table))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 437, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "staging_events" does not exist
+
+[2024-02-18T08:56:56.069+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=final_project, task_id=Load_songplays_fact_table, execution_date=20240218T085513, start_date=20240218T085650, end_date=20240218T085656
+[2024-02-18T08:56:56.083+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 70 for task Load_songplays_fact_table (relation "staging_events" does not exist
+; 23310)
+[2024-02-18T08:56:56.116+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T08:56:56.137+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

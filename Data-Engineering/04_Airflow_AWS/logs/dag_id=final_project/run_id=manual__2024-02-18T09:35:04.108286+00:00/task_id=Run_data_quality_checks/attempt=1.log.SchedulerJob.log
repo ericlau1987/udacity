@@ -1,0 +1,1 @@
+[2024-02-18T09:38:39.315+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: final_project.Run_data_quality_checks manual__2024-02-18T09:35:04.108286+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

@@ -1,0 +1,21 @@
+[2024-02-18T09:00:23.531+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Load_artist_dim_table manual__2024-02-18T08:55:13.724214+00:00 [queued]>
+[2024-02-18T09:00:23.535+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Load_artist_dim_table manual__2024-02-18T08:55:13.724214+00:00 [queued]>
+[2024-02-18T09:00:23.535+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-02-18T09:00:23.541+0000] {taskinstance.py:2192} INFO - Executing <Task(LoadDimensionOperator): Load_artist_dim_table> on 2024-02-18 08:55:13.724214+00:00
+[2024-02-18T09:00:23.545+0000] {standard_task_runner.py:60} INFO - Started process 23384 to run task
+[2024-02-18T09:00:23.547+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Load_artist_dim_table', 'manual__2024-02-18T08:55:13.724214+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmp880v30u4']
+[2024-02-18T09:00:23.549+0000] {standard_task_runner.py:88} INFO - Job 76: Subtask Load_artist_dim_table
+[2024-02-18T09:00:23.573+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.Load_artist_dim_table manual__2024-02-18T08:55:13.724214+00:00 [running]> on host 6b28116ad14a
+[2024-02-18T09:00:23.607+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Load_artist_dim_table' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T08:55:13.724214+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T08:55:13.724214+00:00'
+[2024-02-18T09:00:23.612+0000] {base.py:83} INFO - Using connection ID 'aws_credentials' for task execution.
+[2024-02-18T09:00:23.612+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_credentials', conn_type='aws') credentials retrieved from login and password.
+[2024-02-18T09:00:23.619+0000] {load_dimension.py:34} INFO - dim.dim_artists is being inserted
+[2024-02-18T09:00:23.622+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T09:00:27.582+0000] {sql.py:432} INFO - Running statement: 
+        SELECT distinct artist_id, artist_name, artist_location, artist_latitude, artist_longitude
+        into dim.dim_artists
+        FROM staging.staging_songs
+    , parameters: None
+[2024-02-18T09:00:37.824+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=Load_artist_dim_table, execution_date=20240218T085513, start_date=20240218T090023, end_date=20240218T090037
+[2024-02-18T09:00:37.849+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-18T09:00:37.861+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check
