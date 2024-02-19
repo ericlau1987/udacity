@@ -2534,3 +2534,17 @@ SyntaxError: invalid syntax
 [2024-02-19T09:37:17.154+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:37:17.154+0000] {dag.py:3033} INFO - Sync 1 DAGs
 [2024-02-19T09:37:17.165+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:37:17.165+0000] {dag.py:3820} INFO - Setting next_dagrun for final_project to 2024-02-19T10:00:00+00:00, run_after=2024-02-19T11:00:00+00:00
 [2024-02-19T09:37:17.176+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/final_project.py took 0.119 seconds
+[2024-02-19T09:43:25.835+0000] {processor.py:161} INFO - Started process (PID=6061) to work on /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:25.836+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/final_project.py for tasks to queue
+[2024-02-19T09:43:25.837+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:25.837+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:25.856+0000] {processor.py:840} INFO - DAG(s) 'final_project' retrieved from /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:25.914+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:25.914+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-19T09:43:25.926+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:25.926+0000] {dag.py:3820} INFO - Setting next_dagrun for final_project to 2024-02-19T10:00:00+00:00, run_after=2024-02-19T11:00:00+00:00
+[2024-02-19T09:43:25.938+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/final_project.py took 0.105 seconds
+[2024-02-19T09:43:56.951+0000] {processor.py:161} INFO - Started process (PID=6117) to work on /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:56.952+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/final_project.py for tasks to queue
+[2024-02-19T09:43:56.953+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:56.953+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:56.978+0000] {processor.py:840} INFO - DAG(s) 'final_project' retrieved from /opt/airflow/dags/final_project.py
+[2024-02-19T09:43:57.037+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:57.037+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-19T09:43:57.047+0000] {logging_mixin.py:188} INFO - [2024-02-19T09:43:57.047+0000] {dag.py:3820} INFO - Setting next_dagrun for final_project to 2024-02-19T10:00:00+00:00, run_after=2024-02-19T11:00:00+00:00
+[2024-02-19T09:43:57.060+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/final_project.py took 0.114 seconds
