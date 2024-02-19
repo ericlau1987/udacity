@@ -1,0 +1,22 @@
+[2024-02-19T09:34:32.610+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Run_data_quality_checks manual__2024-02-19T09:25:05.177058+00:00 [queued]>
+[2024-02-19T09:34:32.615+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Run_data_quality_checks manual__2024-02-19T09:25:05.177058+00:00 [queued]>
+[2024-02-19T09:34:32.616+0000] {taskinstance.py:2171} INFO - Starting attempt 3 of 4
+[2024-02-19T09:34:32.622+0000] {taskinstance.py:2192} INFO - Executing <Task(DataQualityOperator): Run_data_quality_checks> on 2024-02-19 09:25:05.177058+00:00
+[2024-02-19T09:34:32.625+0000] {standard_task_runner.py:60} INFO - Started process 816 to run task
+[2024-02-19T09:34:32.628+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Run_data_quality_checks', 'manual__2024-02-19T09:25:05.177058+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmpehrpkehx']
+[2024-02-19T09:34:32.630+0000] {standard_task_runner.py:88} INFO - Job 165: Subtask Run_data_quality_checks
+[2024-02-19T09:34:32.656+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.Run_data_quality_checks manual__2024-02-19T09:25:05.177058+00:00 [running]> on host b8bde2aaf906
+[2024-02-19T09:34:32.696+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Run_data_quality_checks' AIRFLOW_CTX_EXECUTION_DATE='2024-02-19T09:25:05.177058+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-19T09:25:05.177058+00:00'
+[2024-02-19T09:34:32.701+0000] {base.py:83} INFO - Using connection ID 'aws_credentials' for task execution.
+[2024-02-19T09:34:32.702+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_credentials', conn_type='aws') credentials retrieved from login and password.
+[2024-02-19T09:34:32.712+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-19T09:34:36.744+0000] {sql.py:432} INFO - Running statement: SELECT COUNT(*) FROM dim.dim_users WHERE userid is null, parameters: None
+[2024-02-19T09:34:37.797+0000] {sql.py:441} INFO - Rows affected: 1
+[2024-02-19T09:34:38.328+0000] {data_quality.py:35} INFO - Data quality on query SELECT COUNT(*) FROM dim.dim_users WHERE userid is null check passed with 0 records
+[2024-02-19T09:34:38.347+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-19T09:34:43.315+0000] {sql.py:432} INFO - Running statement: SELECT COUNT(*) FROM dim.dim_songs WHERE song_id is null, parameters: None
+[2024-02-19T09:34:48.273+0000] {sql.py:441} INFO - Rows affected: 1
+[2024-02-19T09:34:48.798+0000] {data_quality.py:35} INFO - Data quality on query SELECT COUNT(*) FROM dim.dim_songs WHERE song_id is null check passed with 0 records
+[2024-02-19T09:34:48.805+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=Run_data_quality_checks, execution_date=20240219T092505, start_date=20240219T093432, end_date=20240219T093448
+[2024-02-19T09:34:48.837+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-19T09:34:48.847+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

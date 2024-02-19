@@ -4,12 +4,11 @@ import os
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.postgres_operator import PostgresOperator
-from custom_operators.stage_redshift import StageToRedshiftOperator
-from custom_operators.load_fact import LoadFactOperator
-from custom_operators.load_dimension import LoadDimensionOperator
-from custom_operators.data_quality import DataQualityOperator
+from final_project_operators.stage_redshift import StageToRedshiftOperator
+from final_project_operators.load_fact import LoadFactOperator
+from final_project_operators.load_dimension import LoadDimensionOperator
+from final_project_operators.data_quality import DataQualityOperator
 from udacity.common.final_project_sql_statements import SqlQueries
-
 
 default_args = {
     'owner': 'udacity',
@@ -114,7 +113,8 @@ def final_project():
         aws_credentials_id='aws_credentials',
         schema='dim',
         table='dim_users',
-        sql = SqlQueries.user_table_insert
+        sql = SqlQueries.user_table_insert,
+        insert_type='delete-load'
     )
 
     load_song_dimension_table = LoadDimensionOperator(
@@ -123,7 +123,8 @@ def final_project():
         aws_credentials_id='aws_credentials',
         schema='dim',
         table='dim_songs',
-        sql = SqlQueries.song_table_insert
+        sql = SqlQueries.song_table_insert,
+        insert_type='delete-load'
     )
 
     load_artist_dimension_table = LoadDimensionOperator(
@@ -132,7 +133,8 @@ def final_project():
         aws_credentials_id='aws_credentials',
         schema='dim',
         table='dim_artists',
-        sql = SqlQueries.artist_table_insert
+        sql = SqlQueries.artist_table_insert,
+        insert_type='delete-load'
     )
 
     load_time_dimension_table = LoadDimensionOperator(
@@ -141,7 +143,8 @@ def final_project():
         aws_credentials_id='aws_credentials',
         schema='dim',
         table='dim_time',
-        sql = SqlQueries.time_table_insert
+        sql = SqlQueries.time_table_insert,
+        insert_type='delete-load'
     )
 
     run_quality_checks = DataQualityOperator(
@@ -149,19 +152,18 @@ def final_project():
         redshift_conn_id='redshift',
         aws_credentials_id='aws_credentials',
         params={
-            'tables': ['staging.staging_events', 'staging.staging_songs',
-                'fact.fact_song_plays', 'dim.dim_users', 
-                'dim.dim_songs', 'dim.dim_artists', 'dim.dim_time'
-            ],
+            'qa_check': [
+                {'check_sql': "SELECT COUNT(*) FROM dim.dim_users WHERE userid is null", 'expected_result': 0},
+                {'check_sql': "SELECT COUNT(*) FROM dim.dim_songs WHERE song_id is null", 'expected_result': 0}
+            ]
         }
     )
 
+    end_operator = DummyOperator(task_id='End_execution')
+
     start_operator >> create_stage_schema >> drop_stage_events_table >> create_events_table >> stage_events_to_redshift >> create_fact_schema >> load_songplays_table
     start_operator >> create_stage_schema >> drop_stage_songs_table >> create_songs_table >> stage_songs_to_redshift >> create_fact_schema >> load_songplays_table
-    load_songplays_table >> create_dim_schema  
-    create_dim_schema >> load_user_dimension_table >> run_quality_checks
-    create_dim_schema >> load_song_dimension_table >> run_quality_checks
-    create_dim_schema >> load_artist_dimension_table >> run_quality_checks
-    create_dim_schema >> load_time_dimension_table >> run_quality_checks
+    load_songplays_table >> create_dim_schema
+    create_dim_schema >> [load_user_dimension_table, load_song_dimension_table, load_artist_dimension_table, load_time_dimension_table] >> run_quality_checks >> end_operator
 
 final_project_dag = final_project()
