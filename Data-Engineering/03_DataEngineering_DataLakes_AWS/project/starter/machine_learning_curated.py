@@ -21,18 +21,18 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
-# Script generated for node Step Trainer Trusted
-StepTrainerTrusted_node1707570258171 = glueContext.create_dynamic_frame.from_catalog(
+# Script generated for node step_trainer_trusted
+step_trainer_trusted_node1707984173680 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
     table_name="step_trainer_trusted",
-    transformation_ctx="StepTrainerTrusted_node1707570258171",
+    transformation_ctx="step_trainer_trusted_node1707984173680",
 )
 
-# Script generated for node Accelerometer Trusted
-AccelerometerTrusted_node1707569771843 = glueContext.create_dynamic_frame.from_catalog(
+# Script generated for node accelerometer_trusted
+accelerometer_trusted_node1707984193836 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
     table_name="accelerometer_trusted",
-    transformation_ctx="AccelerometerTrusted_node1707569771843",
+    transformation_ctx="accelerometer_trusted_node1707984193836",
 )
 
 # Script generated for node SQL Query
@@ -43,28 +43,28 @@ from accelerometer_trusted a
 left join step_trainer_trusted b 
 on a.timestamp = b.sensorreadingtime
 """
-SQLQuery_node1707571405360 = sparkSqlQuery(
+SQLQuery_node1707984211244 = sparkSqlQuery(
     glueContext,
     query=SqlQuery0,
     mapping={
-        "accelerometer_trusted": AccelerometerTrusted_node1707569771843,
-        "step_trainer_trusted": StepTrainerTrusted_node1707570258171,
+        "accelerometer_trusted": accelerometer_trusted_node1707984193836,
+        "step_trainer_trusted": step_trainer_trusted_node1707984173680,
     },
-    transformation_ctx="SQLQuery_node1707571405360",
+    transformation_ctx="SQLQuery_node1707984211244",
 )
 
-# Script generated for node Amazon S3
-AmazonS3_node1707570829378 = glueContext.getSink(
+# Script generated for node machine_learning_curated
+machine_learning_curated_node1707984809585 = glueContext.getSink(
     path="s3://ericliu-udacity-lake-house/step_trainer/curated/",
     connection_type="s3",
     updateBehavior="UPDATE_IN_DATABASE",
     partitionKeys=[],
     enableUpdateCatalog=True,
-    transformation_ctx="AmazonS3_node1707570829378",
+    transformation_ctx="machine_learning_curated_node1707984809585",
 )
-AmazonS3_node1707570829378.setCatalogInfo(
+machine_learning_curated_node1707984809585.setCatalogInfo(
     catalogDatabase="stedi", catalogTableName="machine_learning_curated"
 )
-AmazonS3_node1707570829378.setFormat("json")
-AmazonS3_node1707570829378.writeFrame(SQLQuery_node1707571405360)
+machine_learning_curated_node1707984809585.setFormat("json")
+machine_learning_curated_node1707984809585.writeFrame(SQLQuery_node1707984211244)
 job.commit()
