@@ -1,0 +1,44 @@
+[2024-02-18T22:45:33.401+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.create_staging_schema scheduled__2024-02-18T20:00:00+00:00 [queued]>
+[2024-02-18T22:45:33.406+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.create_staging_schema scheduled__2024-02-18T20:00:00+00:00 [queued]>
+[2024-02-18T22:45:33.406+0000] {taskinstance.py:2171} INFO - Starting attempt 2 of 4
+[2024-02-18T22:45:33.415+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): create_staging_schema> on 2024-02-18 20:00:00+00:00
+[2024-02-18T22:45:33.418+0000] {standard_task_runner.py:60} INFO - Started process 28766 to run task
+[2024-02-18T22:45:33.422+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'create_staging_schema', 'scheduled__2024-02-18T20:00:00+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmp5coklbl0']
+[2024-02-18T22:45:33.425+0000] {standard_task_runner.py:88} INFO - Job 104: Subtask create_staging_schema
+[2024-02-18T22:45:33.457+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.create_staging_schema scheduled__2024-02-18T20:00:00+00:00 [running]> on host 6b28116ad14a
+[2024-02-18T22:45:33.503+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='create_staging_schema' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-02-18T20:00:00+00:00'
+[2024-02-18T22:45:33.504+0000] {sql.py:276} INFO - Executing: 
+    create schema if not exists staging
+    
+[2024-02-18T22:45:33.510+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T22:45:33.535+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-18T22:45:41.702+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 624, in __init__
+    hostport: typing.Tuple[str, int] = Connection.__get_host_address_info(host, port)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 404, in __get_host_address_info
+    response = socket.getaddrinfo(host=host, port=port, family=socket.AF_INET)
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 385, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/amazon/aws/hooks/redshift_sql.py", line 199, in get_conn
+    return redshift_connector.connect(**conn_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/__init__.py", line 376, in connect
+    return Connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/redshift_connector/core.py", line 689, in __init__
+    raise InterfaceError("communication error", e)
+redshift_connector.error.InterfaceError: ('communication error', gaierror(-3, 'Temporary failure in name resolution'))
+[2024-02-18T22:45:41.721+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=final_project, task_id=create_staging_schema, execution_date=20240218T200000, start_date=20240218T224533, end_date=20240218T224541
+[2024-02-18T22:45:41.738+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 104 for task create_staging_schema (('communication error', gaierror(-3, 'Temporary failure in name resolution')); 28766)
+[2024-02-18T22:45:41.769+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T22:45:41.788+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

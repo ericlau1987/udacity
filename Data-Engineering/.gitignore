@@ -1,2 +1,5 @@
 .DS_Store
 dwh.cfg
+.env
+
+04_Airflow_AWS/logs

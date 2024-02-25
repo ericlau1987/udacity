@@ -96,33 +96,6 @@ x-airflow-common:
     # dbt:
 
 services:
-  # postgres_prod:
-  #     container_name: postgres_prod
-  #     # build dockerfile for postgres
-  #     build: docker/postgres/
-  #     restart: always
-  #     hostname: ${POSTGRES_HOST_PROD}
-  #     # make the two ports as 5433:5433
-  #     # the second 5433 make it distinguish between 5432 and 5433 when get pgAdmin connected
-  #     ports:
-  #       - ${POSTGRES_PORT_PROD}:${POSTGRES_PORT_PROD} 
-  #     volumes:
-  #       - postgres_prod:/var/lib/postgresql/data
-  #     # update the default port to the new port
-  #     # without it, it will still listen to the default port 5432
-  #     command: postgres -c port=${POSTGRES_PORT_PROD} 
-  #     # Set up postgres database 
-  #     environment:
-  #       POSTGRES_USER: ${POSTGRES_USER}
-  #       POSTGRES_DB: ${POSTGRES_DB_PROD}
-  #       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  #       PGUSER: ${POSTGRES_USER}
-  #       POSTGRES_HOST_AUTH_METHOD: trust
-  #     healthcheck:
-  #       test: ["CMD-SHELL", "pg_isready -U postgres -p ${POSTGRES_PORT_PROD}"]
-  #       interval: 1s
-  #       timeout: 5s
-  #       retries: 10
   postgres:
     image: postgres:13
     hostname: airflow
@@ -325,79 +298,5 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-  # dbt:
-  #   container_name: dbt
-  #   build: 
-  #   # The build context is the set of files that your build can access. 
-  #     # set of files that your build can access. 
-  #     # Details can be found https://docs.docker.com/build/building/context/#what-is-a-build-context
-  #     context: ./ 
-  #     dockerfile: docker/dbt/Dockerfile
-  #   env_file: .env
-  #   # depends_on expresses startup and shutdown dependencies between services.
-  #   # The depends_on is to make sure postgres is run first before running dbt
-  #   volumes:
-  #     - ./dbt:/opt/airflow/dbt
-  #   depends_on:
-  #     postgres_dev:
-  #       condition: service_healthy
-  #     postgres_prod:
-  #       condition: service_healthy
-  #       # service_startedr
-
-  # postgres_dev:
-  #   container_name: postgres_dev
-  #   # build dockerfile for postgres
-  #   build: docker/postgres/
-  #   restart: always
-  #   hostname: ${POSTGRES_HOST}
-  #   ports:
-  #     - "${POSTGRES_PORT}:${POSTGRES_PORT}"
-  #   volumes:
-  #     - postgres_dev:/var/lib/postgresql/data
-  #   # update the default port to the new port
-  #   # without it, it will still listen to the default port 5432
-  #   command: postgres -c port=${POSTGRES_PORT} 
-  #   # Set up postgres database 
-  #   environment:
-  #     POSTGRES_USER: ${POSTGRES_USER}
-  #     POSTGRES_DB: ${POSTGRES_DB}
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  #     POSTGRES_HOST_AUTH_METHOD: trust
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U postgres  -p ${POSTGRES_PORT}"]
-  #     interval: 1s
-  #     timeout: 5s
-  #     retries: 10
-  
-  # postgres_prod:
-  #   container_name: postgres_prod
-  #   # build dockerfile for postgres
-  #   build: docker/postgres/
-  #   restart: always
-  #   hostname: ${POSTGRES_HOST_PROD}
-  #   # make the two ports as 5433:5433
-  #   # the second 5433 make it distinguish between 5432 and 5433 when get pgAdmin connected
-  #   ports:
-  #     - ${POSTGRES_PORT_PROD}:${POSTGRES_PORT_PROD} 
-  #   volumes:
-  #     - postgres_prod:/var/lib/postgresql/data
-  #   # update the default port to the new port
-  #   # without it, it will still listen to the default port 5432
-  #   command: postgres -c port=${POSTGRES_PORT_PROD} 
-  #   # Set up postgres database 
-  #   environment:
-  #     POSTGRES_USER: ${POSTGRES_USER}
-  #     POSTGRES_DB: ${POSTGRES_DB_PROD}
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  #     PGUSER: ${POSTGRES_USER}
-  #     POSTGRES_HOST_AUTH_METHOD: trust
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U postgres -p ${POSTGRES_PORT_PROD}"]
-  #     interval: 1s
-  #     timeout: 5s
-  #     retries: 10
 volumes:
   postgres-db-volume:
-  # postgres_dev:
-  # postgres_prod:

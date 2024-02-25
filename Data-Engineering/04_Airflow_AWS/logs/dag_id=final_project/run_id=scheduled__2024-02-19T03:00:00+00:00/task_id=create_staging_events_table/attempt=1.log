@@ -1,0 +1,58 @@
+[2024-02-19T04:21:59.001+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.create_staging_events_table scheduled__2024-02-19T03:00:00+00:00 [queued]>
+[2024-02-19T04:21:59.006+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.create_staging_events_table scheduled__2024-02-19T03:00:00+00:00 [queued]>
+[2024-02-19T04:21:59.007+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 4
+[2024-02-19T04:21:59.014+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): create_staging_events_table> on 2024-02-19 03:00:00+00:00
+[2024-02-19T04:21:59.017+0000] {standard_task_runner.py:60} INFO - Started process 29012 to run task
+[2024-02-19T04:21:59.020+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'create_staging_events_table', 'scheduled__2024-02-19T03:00:00+00:00', '--job-id', '119', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmp6rftcwyz']
+[2024-02-19T04:21:59.022+0000] {standard_task_runner.py:88} INFO - Job 119: Subtask create_staging_events_table
+[2024-02-19T04:21:59.051+0000] {task_command.py:423} INFO - Running <TaskInstance: final_project.create_staging_events_table scheduled__2024-02-19T03:00:00+00:00 [running]> on host 6b28116ad14a
+[2024-02-19T04:21:59.092+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='udacity' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='create_staging_events_table' AIRFLOW_CTX_EXECUTION_DATE='2024-02-19T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-02-19T03:00:00+00:00'
+[2024-02-19T04:21:59.093+0000] {sql.py:276} INFO - Executing: 
+    create table if not exists staging.staging_events (
+        artist text,
+        auth text,
+        firstname text,
+        gender text,
+        iteminsession int,
+        lastname text,
+        length double precision,
+        level text,
+        location text,
+        method text,
+        page text,
+        registration bigint,
+        sessionid int,
+        song text,
+        status int,
+        ts bigint,
+        useragent varchar(1000),
+        userid text
+    )
+    
+[2024-02-19T04:21:59.098+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-19T04:21:59.119+0000] {base.py:83} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-19T04:22:02.573+0000] {sql.py:432} INFO - Running statement: 
+    create table if not exists staging.staging_events (
+        artist text,
+        auth text,
+        firstname text,
+        gender text,
+        iteminsession int,
+        lastname text,
+        length double precision,
+        level text,
+        location text,
+        method text,
+        page text,
+        registration bigint,
+        sessionid int,
+        song text,
+        status int,
+        ts bigint,
+        useragent varchar(1000),
+        userid text
+    )
+    , parameters: None
+[2024-02-19T04:22:11.908+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=create_staging_events_table, execution_date=20240219T030000, start_date=20240219T042159, end_date=20240219T042211
+[2024-02-19T04:22:11.941+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-19T04:22:11.963+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -84,25 +84,26 @@ class SqlQueries:
     """)
 
     user_table_insert = ("""
+    insert into {}.{} (userid, firstname, lastname, gender, level)
         SELECT distinct userid, firstname, lastname, gender, level
-        into {}.{}
         FROM staging.staging_events
         WHERE page='NextSong'
     """)
 
     song_table_insert = ("""
+    insert into {}.{} (song_id, title, artist_id, year, duration)
         SELECT distinct song_id, title, artist_id, year, duration
-        into {}.{}
         FROM staging.staging_songs
     """)
 
     artist_table_insert = ("""
+    insert into {}.{} (artist_id, artist_name, artist_location, artist_latitude, artist_longitude)
         SELECT distinct artist_id, artist_name, artist_location, artist_latitude, artist_longitude
-        into {}.{}
         FROM staging.staging_songs
     """)
 
     time_table_insert = ("""
+    insert into {}.{} (start_time, hour, day, week, month, year, weekday)
         SELECT start_time, 
             extract(hour from start_time) as hour, 
             extract(day from start_time) as day, 
@@ -110,6 +111,5 @@ class SqlQueries:
             extract(month from start_time) as month, 
             extract(year from start_time) as year, 
             extract(dayofweek from start_time) as weekday
-        into {}.{}
         FROM fact.fact_song_plays
     """)
